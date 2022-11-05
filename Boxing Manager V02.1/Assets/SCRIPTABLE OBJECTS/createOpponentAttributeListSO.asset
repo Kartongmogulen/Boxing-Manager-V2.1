@@ -17,7 +17,7 @@ MonoBehaviour:
   strengthMin: 3
   bodysnatcherAndKOPointsToShareMin: 000000000200000004000000
   bodysnatcherAndKOPointsToShareMax: 000000000500000008000000
-  guardPointsToShare: 03000000070000000b000000
+  guardPointsToShare: 03000000050000000b000000
   guardMin: 010000000300000005000000
   guardFlexiblePointsToShare: 000000000300000005000000
   guardFlexibleMin: 000000000100000003000000

@@ -88,7 +88,7 @@ public class roundManager : MonoBehaviour
     {
         //timerJumpStart = 0;
         //timerJumpStartOn = true;
-        Debug.Log("Round now: " + roundNow);
+        //Debug.Log("Round now: " + roundNow);
         roundNow++;
         minInRound = 0;
 

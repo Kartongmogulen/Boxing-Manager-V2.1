@@ -11,6 +11,8 @@ public class fightStatsKnockdownCause : MonoBehaviour
     public List<string> knockDownCausePlayerOne;
     public List<string> knockDownCausePlayerTwo;
 
+    public simulateFightDataSO SimulateFightDataSO;
+
     //Skapar lista för nya matchen
     public void specialAttackCrossKO()
     {

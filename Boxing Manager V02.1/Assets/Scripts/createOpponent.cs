@@ -56,15 +56,23 @@ public class createOpponent : MonoBehaviour
         guardFlexiblePoints(CreateOpponentAttributeList.guardFlexibleMin[lvlOpponent], CreateOpponentAttributeList.guardFlexiblePointsToShare[lvlOpponent]);
         combinations();
         GetComponent<player>().Awake();
-        Debug.Log("CreateOpponent");
+        //Debug.Log("CreateOpponent");
     }
 
     public void fightStyle()
     {
-        fightStyleValue = Random.Range(0, System.Enum.GetValues(typeof(fightStyle)).Length);
-        //Debug.Log(GetComponent<player>().name + " " + fightStyleValue);
-        GetComponent<player>().fightStyleNow = (global::fightStyle)fightStyleValue;
-        //Debug.Log("FightStyle: " + GetComponent<player>().fightStyleNow);
+        
+        if (lvlOpponent == 0)
+        {
+            GetComponent<player>().fightStyleNow = (global::fightStyle)0;
+        }
+        else
+        {
+            fightStyleValue = Random.Range(1, System.Enum.GetValues(typeof(fightStyle)).Length);
+            Debug.Log(GetComponent<player>().name + " " + fightStyleValue);
+            GetComponent<player>().fightStyleNow = (global::fightStyle)fightStyleValue;
+            //Debug.Log("FightStyle: " + GetComponent<player>().fightStyleNow);
+        }
     }
 
     public void attackFocus()

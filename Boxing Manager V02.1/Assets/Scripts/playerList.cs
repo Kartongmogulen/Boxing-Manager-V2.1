@@ -6,8 +6,4 @@ public class playerList : MonoBehaviour
 {
     public List<player> PlayerList;
     
-
-    
-
-   
 }

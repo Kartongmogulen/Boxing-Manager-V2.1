@@ -64,7 +64,8 @@ public class opponentStatsDisplayPanel : MonoBehaviour
 
     public void updateOpponentRandom(int index)
     {
-        Opponent = playerListRandomGO.GetComponent<playerList>().PlayerList[index].GetComponent<player>();
+        Opponent = fightScriptsGO.GetComponent<fightManager>().opponentListRandomGO.PlayerList[index].GetComponent<player>();
+        //Opponent = playerListRandomGO.GetComponent<playerList>().PlayerList[index].GetComponent<player>();
         nameOpponentText.text = "Name: " + Opponent.name;
         fightStyleText.text = "Fightstyle: " + Opponent.fightStyleNow;
         accuracyText.text = "Accuracy: " + Opponent.accuracy;

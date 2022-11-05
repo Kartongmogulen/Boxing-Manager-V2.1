@@ -23,6 +23,8 @@ public class startNextFight : MonoBehaviour
     private void Start()
     {
         HealthPanelTextUpdate = FightUiGO.GetComponent<healthPanelTextUpdate>();
+        playerOne = fightScriptGO.GetComponent<fightManager>().PlayerOne;
+        //saveStatsForPlayer();
     }
 
     public void playerPanelToFight()

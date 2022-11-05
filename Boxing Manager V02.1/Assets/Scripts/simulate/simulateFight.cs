@@ -407,6 +407,28 @@ public class simulateFight : MonoBehaviour
 
         SimulateFightDataSO.attackFocus.Add(PlayerTwo.AttackFocus.ToString());
 
+        /*
+        Debug.Log("knockdownCause Count: " + PlayerOne.GetComponent<fightStatsKnockdownCause>().knockDownCause.Count);
+
+        if (PlayerOne.GetComponent<fightStatsKnockdownCause>().knockDownCause.Count == 1)
+        {
+            SimulateFightDataSO.knockdownCauseFirstPlayerOne.Add(PlayerOne.GetComponent<fightStatsKnockdownCause>().knockDownCause[0]);
+        }
+
+        if (PlayerOne.GetComponent<fightStatsKnockdownCause>().knockDownCause.Count == 2)
+        {
+            SimulateFightDataSO.knockdownCauseFirstPlayerOne.Add(PlayerOne.GetComponent<fightStatsKnockdownCause>().knockDownCause[0]);
+            SimulateFightDataSO.knockdownCauseSecondPlayerOne.Add(PlayerOne.GetComponent<fightStatsKnockdownCause>().knockDownCause[1]);
+        }
+
+        if (PlayerOne.GetComponent<fightStatsKnockdownCause>().knockDownCause.Count == 3)
+        {
+            SimulateFightDataSO.knockdownCauseFirstPlayerOne.Add(PlayerOne.GetComponent<fightStatsKnockdownCause>().knockDownCause[0]);
+            SimulateFightDataSO.knockdownCauseSecondPlayerOne.Add(PlayerOne.GetComponent<fightStatsKnockdownCause>().knockDownCause[1]);
+            SimulateFightDataSO.knockdownCauseThirdPlayerOne.Add(PlayerOne.GetComponent<fightStatsKnockdownCause>().knockDownCause[2]);
+        }
+        */
+
         Debug.Log("Fight slut");
         fightEnded = true;
         continueSimLoop = false;

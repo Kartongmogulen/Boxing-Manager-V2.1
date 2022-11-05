@@ -7,6 +7,9 @@ using TMPro;
 public class playerStatsUIController : MonoBehaviour
 {
     public player Player;
+
+    public GameObject fightScriptsGO;
+
     public TextMeshProUGUI expPointsLeftText;
     //ATTACK
     public TextMeshProUGUI AccuracyPointsText;
@@ -33,6 +36,8 @@ public class playerStatsUIController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Player = fightScriptsGO.GetComponent<fightManager>().PlayerOne;
+
         expPointsLeftText.text = "Exp Points Left: " + Player.expPointsStart;
         AccuracyPointsText.text = "Accuracy: " + Player.accuracy;
         StrengthPointsText.text = "Strength: " + Player.strength;

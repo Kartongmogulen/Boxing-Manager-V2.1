@@ -20,7 +20,7 @@ public class healthPanelTextUpdate : MonoBehaviour
     public TextMeshProUGUI nameTextPlayerTwo;
     public TextMeshProUGUI HeadHealthTextPlayerTwo;
     public TextMeshProUGUI BodyHealthTextPlayerTwo;
-    public TextMeshProUGUI StaminaHealthTextPlayerTwo;
+    public Text StaminaHealthTextPlayerTwo;
     public TextMeshProUGUI KnockdownCounterTextPlayerTwo;
 
     private void Start()
@@ -50,7 +50,8 @@ public class healthPanelTextUpdate : MonoBehaviour
 
     public void staminaColor()
     {
-   
+
+  //Player One
         if (FightManager.PlayerOne.staminaBoundriePassed == 0)
         {
             StaminaHealthTextPlayerOne.color = new Color(0, 0, 0, 1);
@@ -70,5 +71,27 @@ public class healthPanelTextUpdate : MonoBehaviour
         {
             StaminaHealthTextPlayerOne.color = new Color(1, 0, 0, 1);
         }
+
+        //Player Two
+        if (FightManager.PlayerTwo.staminaBoundriePassed == 0)
+        {
+            StaminaHealthTextPlayerTwo.color = new Color(0, 0, 0, 1);
+        }
+
+        if (FightManager.PlayerTwo.staminaBoundriePassed == 1)
+        {
+            StaminaHealthTextPlayerTwo.color = new Color(1, 0.92f, 0.016f, 1);
+        }
+
+        if (FightManager.PlayerTwo.staminaBoundriePassed == 2)
+        {
+            StaminaHealthTextPlayerTwo.color = new Color(1.0f, 0.5f, 0.0f, 1);
+        }
+
+        if (FightManager.PlayerTwo.staminaBoundriePassed == 3)
+        {
+            StaminaHealthTextPlayerTwo.color = new Color(1, 0, 0, 1);
+        }
+
     }
 }

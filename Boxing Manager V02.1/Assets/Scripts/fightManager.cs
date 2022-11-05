@@ -39,6 +39,8 @@ public class fightManager : MonoBehaviour
 
     public playerList opponentListGO;
     public playerList opponentListRandomGO;
+    public playerList opponentListLvlZeroRandomGO;
+    public playerList opponentListLvlOneRandomGO;
     public playerList opponentListRankedGO;
     public int opponentIndex;//Vilket index av valbara motståndare som väljs
     public player PlayerTwo;
@@ -99,6 +101,21 @@ public class fightManager : MonoBehaviour
         {
             fightUIScripts.GetComponent<commentatorManager>().waitSecondsBeforeUpdateOpponent = 0;
         }
+
+        //Väljer vilken lista av motståndare som ska användas.
+        if (PlayerOne.playerLvl == 0)
+        {
+            //PlayerTwo = opponentListRandomGO.GetComponent<playerList>().PlayerList[opponentIndex];
+            PlayerTwo = opponentListLvlZeroRandomGO.GetComponent<playerList>().PlayerList[opponentIndex];
+            opponentListRandomGO = opponentListLvlZeroRandomGO;
+        }
+
+        if (PlayerOne.playerLvl == 1)
+        {
+            //PlayerTwo = opponentListRandomGO.GetComponent<playerList>().PlayerList[opponentIndex];
+            PlayerTwo = opponentListLvlOneRandomGO.GetComponent<playerList>().PlayerList[opponentIndex];
+            opponentListRandomGO = opponentListLvlOneRandomGO;
+        }
     }
 
     /*
@@ -129,12 +146,26 @@ public class fightManager : MonoBehaviour
 
         if (gameloopScripsGO.GetComponent<rankingManager>().playerRanked == false)
         {
-            PlayerTwo = opponentListRandomGO.GetComponent<playerList>().PlayerList[opponentIndex];
+            if (PlayerOne.playerLvl == 0)
+            {
+                PlayerTwo = opponentListRandomGO.GetComponent<playerList>().PlayerList[opponentIndex];
+                             
+            }
+            
+            if (PlayerOne.playerLvl == 1)
+            {
+                PlayerTwo = opponentListRandomGO.GetComponent<playerList>().PlayerList[opponentIndex];
+               
+            }
+
+            
+
         }
         else
         {
             opponentIndex = 0;
             PlayerTwo = opponentListRankedGO.GetComponent<playerList>().PlayerList[opponentIndex];
+   
         }
     
         PlayerTwo.resetAfterFight();
@@ -362,7 +393,7 @@ public class fightManager : MonoBehaviour
 
     public void playerTwoCrossHead(int accuracyBoost)
     {
-        Debug.Log("Player Two Cross Head");
+        //Debug.Log("Player Two Cross Head");
         GetComponent<crossFight>().crossHead(PlayerTwo, PlayerOne, true, accuracyBoost);
         //updatePlayerTwo();
     }
@@ -974,11 +1005,13 @@ public void playerOneCrossHead(int accuracyBoost)
         if (simulation == false && gameloopScripsGO.GetComponentInChildren<simRankedFight>().simulationRankedON == false)
         {
             //Skapa nya motståndare
+            
             for (int i = 0; opponentListRandomGO.GetComponent<playerList>().PlayerList.Count > i; i++)
             {
                 opponentListRandomGO.GetComponent<playerList>().PlayerList[i].GetComponent<createOpponent>().setLvl(playerRankedLvl);
                 opponentListRandomGO.GetComponent<playerList>().PlayerList[i].GetComponent<createOpponent>().createOpponentFunction();
             }
+            
         }
 
         

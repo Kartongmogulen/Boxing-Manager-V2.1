@@ -12,81 +12,54 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 610da435472981c468bb9bd5605a3d71, type: 3}
   m_Name: simulateFightDataSO
   m_EditorClassIdentifier: 
-  playerOneWinner: 000000010101000001010101010101000101
+  playerOneWinner: 0000010101010101010100
   howTheFightEnded:
-  - KO
-  - KO
-  - KO
-  - Decision
-  - Decision
-  - KO
-  - KO
-  - KO
-  - Decision
   - Decision
   - KO
   - KO
   - KO
   - KO
   - KO
-  - Decision
   - KO
   - KO
-  endedInRound: 050000000400000004000000060000000600000005000000050000000500000006000000060000000500000004000000030000000200000002000000060000000400000003000000
+  - KO
+  - KO
+  - KO
+  endedInRound: 0600000004000000050000000500000004000000020000000500000005000000030000000300000003000000
   fightStylePlayerOne:
   - Boxerpuncher
   - Boxerpuncher
-  - Boxerpuncher
-  - Boxerpuncher
-  - Boxerpuncher
-  - Boxerpuncher
-  - Boxerpuncher
-  - Boxerpuncher
-  - Boxerpuncher
-  - Boxerpuncher
-  - Boxerpuncher
-  - Boxerpuncher
-  - Boxerpuncher
-  - Boxerpuncher
-  - Boxerpuncher
-  - Boxerpuncher
-  - Boxerpuncher
-  - Boxerpuncher
+  - None
+  - None
+  - None
+  - None
+  - None
+  - None
+  - None
+  - None
+  - None
   fightStylePlayerTwo:
   - Boxerpuncher
-  - Slugger
-  - Slugger
   - Boxerpuncher
+  - None
+  - None
+  - None
+  - None
+  - None
+  - None
+  - None
+  - None
   - Slugger
-  - Counterpuncher
-  - Counterpuncher
-  - Boxerpuncher
-  - Counterpuncher
-  - Counterpuncher
-  - Boxerpuncher
-  - Counterpuncher
-  - Counterpuncher
-  - Slugger
-  - Counterpuncher
-  - Counterpuncher
-  - Counterpuncher
-  - Counterpuncher
   attackFocus:
   - Body
-  - Head
-  - Head
-  - Head
-  - Head
   - Body
   - Head
   - Body
   - Body
   - Body
-  - Head
-  - Head
-  - Head
-  - Body
-  - Head
-  - Head
   - Body
   - Body
+  - Body
+  - Body
+  - Head
+  dodgeCompletedFight: 

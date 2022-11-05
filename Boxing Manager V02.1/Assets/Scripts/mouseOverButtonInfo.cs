@@ -28,6 +28,11 @@ public class mouseOverButtonInfo : MonoBehaviour
 
     //public TextMeshProUGUI accuracyStatText;
 
+    private void Start()
+    {
+        PlayerOne = fightScriptGO.GetComponent<fightManager>().PlayerOne;
+    }
+
     public void colorStatIfAffected()
     {
 
