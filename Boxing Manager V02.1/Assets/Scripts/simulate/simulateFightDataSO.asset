@@ -12,54 +12,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 610da435472981c468bb9bd5605a3d71, type: 3}
   m_Name: simulateFightDataSO
   m_EditorClassIdentifier: 
-  playerOneWinner: 0000010101010101010100
+  playerOneWinner: 0100010101
   howTheFightEnded:
   - Decision
   - KO
   - KO
   - KO
   - KO
-  - KO
-  - KO
-  - KO
-  - KO
-  - KO
-  - KO
-  endedInRound: 0600000004000000050000000500000004000000020000000500000005000000030000000300000003000000
+  endedInRound: 0600000004000000040000000100000002000000
   fightStylePlayerOne:
-  - Boxerpuncher
-  - Boxerpuncher
-  - None
-  - None
-  - None
-  - None
   - None
   - None
   - None
   - None
   - None
   fightStylePlayerTwo:
-  - Boxerpuncher
-  - Boxerpuncher
-  - None
-  - None
-  - None
-  - None
-  - None
-  - None
-  - None
-  - None
-  - Slugger
+  - Counterpuncher
+  - Counterpuncher
+  - Counterpuncher
+  - Counterpuncher
+  - Counterpuncher
   attackFocus:
-  - Body
-  - Body
   - Head
   - Body
   - Body
   - Body
   - Body
-  - Body
-  - Body
-  - Body
-  - Head
-  dodgeCompletedFight: 
+  dodgeCompletedFight: 0400000000000000070000000000000000000000

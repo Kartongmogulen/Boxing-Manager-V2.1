@@ -89,7 +89,7 @@ public class playerTwoAction : MonoBehaviour
 
     public void bodySnatcher(player Opponent)
     {
-        Debug.Log("Player Two BodySnatcher Action");
+        //Debug.Log("Player Two BodySnatcher Action");
         randomNumb = Random.Range(0, 100);
         //Debug.Log("Bodysnatcher Random nr: " + randomNumb);
         if (Opponent.oneTwoUnlocked == false)

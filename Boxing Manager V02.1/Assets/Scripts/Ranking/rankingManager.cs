@@ -14,7 +14,7 @@ public class rankingManager : MonoBehaviour
 
     public int rankedForFirstTime;
 
-    public createOpponentAttributeList CreateOpponentAttributeListSO;
+    //public createOpponentAttributeList CreateOpponentAttributeListSO;
     public GameObject playerListChampionsFixed;
     public bool playerRanked;
 
@@ -26,10 +26,13 @@ public class rankingManager : MonoBehaviour
     public GameObject fightScriptsGO;
     public GameObject championsPanelGO;
 
+    //public willPlayerRankUp WillPlayerRankUp;
+
     //START ENDAST FÖR TEST
     public void Start()
     {
         checkIfPlayerWillRankUp(0);
+    
     }
 
     public void checkIfPlayerWillRankUp(int pointsNowPlayer)

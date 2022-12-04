@@ -495,11 +495,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   staminaInt: 0
   headHealthInt: 0
-  name: CHAMP 1
+  name: Iron Mike
   fighterStateNow: 0
-  fightStyleNow: 2
+  fightStyleNow: 3
   AttackFocus: 0
-  FightStyleSONow: {fileID: 0}
   FightStatsShared: {fileID: 11400000, guid: a5d15e66e0aa09d44be11271206c3b72, type: 2}
   StaminaManager: {fileID: 11400000, guid: 90a1e0847c0907646b0046562f61ac39, type: 2}
   playerPanel: {fileID: 173277814}
@@ -508,10 +507,10 @@ MonoBehaviour:
   Champion: 1
   expPointsNow: 0
   expPointsStart: 0
-  playerLvl: 3
+  playerLvl: 2
   playerLvlHealthHead: 2
   playerLvlHealthBody: 2
-  playerLvlHealthStamina: 0
+  playerLvlHealthStamina: 2
   playerLvlHealthStaminaRecovery: 0
   bodyHealthStart: 0
   bodyHealthStatAfterLastFight: 0
@@ -582,7 +581,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8950001}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 38bafa0cc3496374798c9b0cb19e5934, type: 3}
   m_Name: 
@@ -1984,7 +1983,6 @@ MonoBehaviour:
   fighterStateNow: 0
   fightStyleNow: 0
   AttackFocus: 0
-  FightStyleSONow: {fileID: 0}
   FightStatsShared: {fileID: 11400000, guid: a5d15e66e0aa09d44be11271206c3b72, type: 2}
   StaminaManager: {fileID: 11400000, guid: 90a1e0847c0907646b0046562f61ac39, type: 2}
   playerPanel: {fileID: 173277814}
@@ -2549,9 +2547,8 @@ MonoBehaviour:
   headHealthInt: 0
   name: Random One Lvl 1
   fighterStateNow: 0
-  fightStyleNow: 0
+  fightStyleNow: 3
   AttackFocus: 0
-  FightStyleSONow: {fileID: 11400000, guid: a816d357e5d55d841a366cda5da20cca, type: 2}
   FightStatsShared: {fileID: 11400000, guid: a5d15e66e0aa09d44be11271206c3b72, type: 2}
   StaminaManager: {fileID: 11400000, guid: 90a1e0847c0907646b0046562f61ac39, type: 2}
   playerPanel: {fileID: 173277814}
@@ -2677,7 +2674,6 @@ MonoBehaviour:
   AttributeLevelManager: {fileID: 0}
   AttributeManager: {fileID: 11400000, guid: 30f5078a30e32a14cb73413d6c61bb85, type: 2}
   Player: {fileID: 0}
-  FightStyleSO: {fileID: 11400000, guid: a816d357e5d55d841a366cda5da20cca, type: 2}
   CreateOpponentAttributeList: {fileID: 11400000, guid: 58af3305a0c21c249b63c2ad92d11b09, type: 2}
   lvlOpponent: 1
   fightStyleValue: 0
@@ -3214,6 +3210,58 @@ RectTransform:
   m_AnchoredPosition: {x: 207.42944, y: -119.794205}
   m_SizeDelta: {x: 414.8589, y: 79.342804}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &110268852
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 110268853}
+  - component: {fileID: 110268854}
+  m_Layer: 0
+  m_Name: PlayModeON
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &110268853
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 110268852}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1371547194}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &110268854
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 110268852}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e668fb2252442147ad0fe602a30edaa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  champChoosePanelGO: {fileID: 2146235956}
+  fightScriptsGO: {fileID: 1178195550}
+  playerPanelScriptGO: {fileID: 173277814}
+  PlayerOne: {fileID: 62545094}
+  playerRankedLvlForBelt: 1
+  limitToRankUpPlayer: 3
+  roundFightLength: 6
+  actionsPerRound: 12
+  totalKOBeforeFightEnds: 2
 --- !u!1 &111339708
 GameObject:
   m_ObjectHideFlags: 0
@@ -4150,6 +4198,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 62545094}
+  i: 0
   fightScriptsGO: {fileID: 1178195550}
   expPointsLeftText: {fileID: 857435029}
   AccuracyPointsText: {fileID: 1503847264}
@@ -4550,7 +4599,6 @@ MonoBehaviour:
   fighterStateNow: 0
   fightStyleNow: 0
   AttackFocus: 0
-  FightStyleSONow: {fileID: 11400000, guid: a816d357e5d55d841a366cda5da20cca, type: 2}
   FightStatsShared: {fileID: 11400000, guid: a5d15e66e0aa09d44be11271206c3b72, type: 2}
   StaminaManager: {fileID: 11400000, guid: 90a1e0847c0907646b0046562f61ac39, type: 2}
   playerPanel: {fileID: 173277814}
@@ -4642,7 +4690,6 @@ MonoBehaviour:
   AttributeLevelManager: {fileID: 0}
   AttributeManager: {fileID: 11400000, guid: 30f5078a30e32a14cb73413d6c61bb85, type: 2}
   Player: {fileID: 0}
-  FightStyleSO: {fileID: 11400000, guid: a816d357e5d55d841a366cda5da20cca, type: 2}
   CreateOpponentAttributeList: {fileID: 11400000, guid: 58af3305a0c21c249b63c2ad92d11b09, type: 2}
   lvlOpponent: 0
   fightStyleValue: 0
@@ -6090,7 +6137,6 @@ MonoBehaviour:
   fighterStateNow: 0
   fightStyleNow: 2
   AttackFocus: 0
-  FightStyleSONow: {fileID: 0}
   FightStatsShared: {fileID: 11400000, guid: a5d15e66e0aa09d44be11271206c3b72, type: 2}
   StaminaManager: {fileID: 11400000, guid: 90a1e0847c0907646b0046562f61ac39, type: 2}
   playerPanel: {fileID: 173277814}
@@ -6182,7 +6228,6 @@ MonoBehaviour:
   AttributeLevelManager: {fileID: 173277817}
   AttributeManager: {fileID: 0}
   Player: {fileID: 0}
-  FightStyleSO: {fileID: 0}
   CreateOpponentAttributeList: {fileID: 0}
   lvlOpponent: 2
   fightStyleValue: 0
@@ -6844,8 +6889,9 @@ Transform:
   m_Children:
   - {fileID: 773603727}
   - {fileID: 2112745529}
+  - {fileID: 1347674751}
   m_Father: {fileID: 1371547194}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &301115438
 MonoBehaviour:
@@ -6862,7 +6908,6 @@ MonoBehaviour:
   champNameText: {fileID: 128335357}
   nrOneNameText: {fileID: 1274590782}
   nrTwoNameText: {fileID: 2022031158}
-  PlayerList: {fileID: 0}
 --- !u!1 &309288614
 GameObject:
   m_ObjectHideFlags: 0
@@ -8582,7 +8627,6 @@ MonoBehaviour:
   AttributeLevelManager: {fileID: 0}
   AttributeManager: {fileID: 11400000, guid: 30f5078a30e32a14cb73413d6c61bb85, type: 2}
   Player: {fileID: 0}
-  FightStyleSO: {fileID: 11400000, guid: a816d357e5d55d841a366cda5da20cca, type: 2}
   CreateOpponentAttributeList: {fileID: 11400000, guid: 58af3305a0c21c249b63c2ad92d11b09, type: 2}
   lvlOpponent: 1
   fightStyleValue: 0
@@ -8615,9 +8659,8 @@ MonoBehaviour:
   headHealthInt: 0
   name: Random Three Lvl 1
   fighterStateNow: 0
-  fightStyleNow: 0
+  fightStyleNow: 2
   AttackFocus: 0
-  FightStyleSONow: {fileID: 11400000, guid: a816d357e5d55d841a366cda5da20cca, type: 2}
   FightStatsShared: {fileID: 11400000, guid: a5d15e66e0aa09d44be11271206c3b72, type: 2}
   StaminaManager: {fileID: 11400000, guid: 90a1e0847c0907646b0046562f61ac39, type: 2}
   playerPanel: {fileID: 173277814}
@@ -9337,6 +9380,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 465982005}
+  - component: {fileID: 465982015}
   - component: {fileID: 465982011}
   - component: {fileID: 465982007}
   - component: {fileID: 465982014}
@@ -9423,7 +9467,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fightScriptsGO: {fileID: 1178195550}
   playerListRandomGO: {fileID: 768768600}
-  opponentListRankedGO: {fileID: 1177787288}
+  opponentListRankedGO: {fileID: 1347674749}
   Opponent: {fileID: 0}
   nameOpponentText: {fileID: 70549933}
   fightStyleText: {fileID: 233294294}
@@ -9551,6 +9595,27 @@ MonoBehaviour:
   playerTwoGuardBodyGO: {fileID: 1328634906}
   playerOneGuardBodyActive: 0
   playerTwoGuardBodyActive: 0
+--- !u!114 &465982015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 465982004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dac75a2f431ea6a4cb4f450537286a7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackBodyPlaceholder: {fileID: 482694364}
+  playerOneLeftHand: {fileID: 1962081022}
+  playerOneRightHand: {fileID: 329087392}
+  playerOneLeftGlove: {fileID: 2800000, guid: fd5a76dc1e6eb2f40b001487925934c9, type: 3}
+  playerOneRightGlove: {fileID: 2800000, guid: 5270b9bc2b1b14e41b930f33391b110e, type: 3}
+  playerTwoLeftHand: {fileID: 895647824}
+  playerTwoLeftGlove: {fileID: 2800000, guid: 5270b9bc2b1b14e41b930f33391b110e, type: 3}
+  playerTwoRightHand: {fileID: 1031786294}
+  playerTwoRightGlove: {fileID: 2800000, guid: fd5a76dc1e6eb2f40b001487925934c9, type: 3}
 --- !u!1 &469844770
 GameObject:
   m_ObjectHideFlags: 0
@@ -9590,7 +9655,6 @@ MonoBehaviour:
   fighterStateNow: 0
   fightStyleNow: 2
   AttackFocus: 0
-  FightStyleSONow: {fileID: 0}
   FightStatsShared: {fileID: 11400000, guid: a5d15e66e0aa09d44be11271206c3b72, type: 2}
   StaminaManager: {fileID: 11400000, guid: 90a1e0847c0907646b0046562f61ac39, type: 2}
   playerPanel: {fileID: 173277814}
@@ -11285,7 +11349,6 @@ MonoBehaviour:
   fighterStateNow: 0
   fightStyleNow: 2
   AttackFocus: 0
-  FightStyleSONow: {fileID: 0}
   FightStatsShared: {fileID: 11400000, guid: a5d15e66e0aa09d44be11271206c3b72, type: 2}
   StaminaManager: {fileID: 11400000, guid: 90a1e0847c0907646b0046562f61ac39, type: 2}
   playerPanel: {fileID: 173277814}
@@ -11393,7 +11456,6 @@ MonoBehaviour:
   AttributeLevelManager: {fileID: 173277817}
   AttributeManager: {fileID: 0}
   Player: {fileID: 0}
-  FightStyleSO: {fileID: 0}
   CreateOpponentAttributeList: {fileID: 0}
   lvlOpponent: 2
   fightStyleValue: 0
@@ -15037,7 +15099,6 @@ MonoBehaviour:
   fighterStateNow: 0
   fightStyleNow: 1
   AttackFocus: 0
-  FightStyleSONow: {fileID: 0}
   FightStatsShared: {fileID: 11400000, guid: a5d15e66e0aa09d44be11271206c3b72, type: 2}
   StaminaManager: {fileID: 11400000, guid: 90a1e0847c0907646b0046562f61ac39, type: 2}
   playerPanel: {fileID: 173277814}
@@ -16055,7 +16116,6 @@ MonoBehaviour:
   fighterStateNow: 0
   fightStyleNow: 1
   AttackFocus: 0
-  FightStyleSONow: {fileID: 0}
   FightStatsShared: {fileID: 11400000, guid: a5d15e66e0aa09d44be11271206c3b72, type: 2}
   StaminaManager: {fileID: 11400000, guid: 90a1e0847c0907646b0046562f61ac39, type: 2}
   playerPanel: {fileID: 173277814}
@@ -16752,23 +16812,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   staminaInt: 0
   headHealthInt: 0
-  name: CHAMP 2
+  name: Oscar De La Hoya
   fighterStateNow: 0
-  fightStyleNow: 0
+  fightStyleNow: 1
   AttackFocus: 0
-  FightStyleSONow: {fileID: 0}
   FightStatsShared: {fileID: 11400000, guid: a5d15e66e0aa09d44be11271206c3b72, type: 2}
   StaminaManager: {fileID: 11400000, guid: 90a1e0847c0907646b0046562f61ac39, type: 2}
   playerPanel: {fileID: 173277814}
   fightStatsGO: {fileID: 786479407}
   Opponent: 1
-  Champion: 0
+  Champion: 1
   expPointsNow: 0
   expPointsStart: 0
-  playerLvl: 3
+  playerLvl: 2
   playerLvlHealthHead: 2
   playerLvlHealthBody: 2
-  playerLvlHealthStamina: 0
+  playerLvlHealthStamina: 3
   playerLvlHealthStaminaRecovery: 0
   bodyHealthStart: 0
   bodyHealthStatAfterLastFight: 0
@@ -16782,20 +16841,20 @@ MonoBehaviour:
   guardHeadStatAfterLastFight: 0
   guardBody: 6
   guardBodyStatAfterLastFight: 0
-  guardFlexibleDuringFight: 2
+  guardFlexibleDuringFight: 4
   guardFlexibleDuringFightAfterLastFight: 0
   dodge: 0
   dodgeAfterLastFight: 0
   dodgeActive: 0
   dodgeCompleted: 0
-  accuracy: 6
+  accuracy: 10
   accuracyStatAfterLastFight: 0
-  strength: 10
+  strength: 7
   strengthStatAfterLastFight: 0
   endurance: 10
-  knockdownChance: 8
+  knockdownChance: 3
   knockdownChanceStatAfterLastFight: 0
-  reduceOpponentStaminaRecoveryChance: 5
+  reduceOpponentStaminaRecoveryChance: 3
   reduceOpponentStaminaRecoveryChanceStatAfterLastFight: 0
   measureJabLimit: 0
   measureJabPotentialIncreaseAccuracy: 0
@@ -18358,7 +18417,6 @@ MonoBehaviour:
   fighterStateNow: 0
   fightStyleNow: 2
   AttackFocus: 0
-  FightStyleSONow: {fileID: 0}
   FightStatsShared: {fileID: 11400000, guid: a5d15e66e0aa09d44be11271206c3b72, type: 2}
   StaminaManager: {fileID: 11400000, guid: 90a1e0847c0907646b0046562f61ac39, type: 2}
   playerPanel: {fileID: 173277814}
@@ -18466,7 +18524,6 @@ MonoBehaviour:
   AttributeLevelManager: {fileID: 173277817}
   AttributeManager: {fileID: 0}
   Player: {fileID: 0}
-  FightStyleSO: {fileID: 0}
   CreateOpponentAttributeList: {fileID: 0}
   lvlOpponent: 2
   fightStyleValue: 0
@@ -18626,7 +18683,6 @@ MonoBehaviour:
   AttributeLevelManager: {fileID: 173277817}
   AttributeManager: {fileID: 0}
   Player: {fileID: 0}
-  FightStyleSO: {fileID: 0}
   CreateOpponentAttributeList: {fileID: 0}
   lvlOpponent: 2
   fightStyleValue: 0
@@ -18661,7 +18717,6 @@ MonoBehaviour:
   fighterStateNow: 0
   fightStyleNow: 2
   AttackFocus: 0
-  FightStyleSONow: {fileID: 0}
   FightStatsShared: {fileID: 11400000, guid: a5d15e66e0aa09d44be11271206c3b72, type: 2}
   StaminaManager: {fileID: 11400000, guid: 90a1e0847c0907646b0046562f61ac39, type: 2}
   playerPanel: {fileID: 173277814}
@@ -19934,7 +19989,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerOne: {fileID: 1416799404}
-  PlayerTwo: {fileID: 92226864}
+  PlayerTwo: {fileID: 417469758}
   FightManager: {fileID: 0}
   fightScriptsGO: {fileID: 1178195550}
   waitSecInt: 0.1
@@ -21592,7 +21647,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerList:
   - {fileID: 8950005}
-  - {fileID: 0}
+  - {fileID: 904746758}
   - {fileID: 0}
 --- !u!4 &1177787290
 Transform:
@@ -21607,6 +21662,7 @@ Transform:
   m_Children:
   - {fileID: 8950002}
   - {fileID: 904746754}
+  - {fileID: 1353562966}
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -21678,7 +21734,7 @@ MonoBehaviour:
   opponentListRandomGO: {fileID: 768768601}
   opponentListLvlZeroRandomGO: {fileID: 773603728}
   opponentListLvlOneRandomGO: {fileID: 2112745528}
-  opponentListRankedGO: {fileID: 1177787289}
+  opponentListRankedGO: {fileID: 1347674750}
   opponentIndex: 0
   PlayerTwo: {fileID: 0}
   PlayerTwoGO: {fileID: 0}
@@ -22036,7 +22092,6 @@ MonoBehaviour:
   AttributeLevelManager: {fileID: 173277817}
   AttributeManager: {fileID: 0}
   Player: {fileID: 0}
-  FightStyleSO: {fileID: 0}
   CreateOpponentAttributeList: {fileID: 0}
   lvlOpponent: 2
   fightStyleValue: 0
@@ -22085,7 +22140,6 @@ MonoBehaviour:
   fighterStateNow: 0
   fightStyleNow: 2
   AttackFocus: 0
-  FightStyleSONow: {fileID: 0}
   FightStatsShared: {fileID: 11400000, guid: a5d15e66e0aa09d44be11271206c3b72, type: 2}
   StaminaManager: {fileID: 11400000, guid: 90a1e0847c0907646b0046562f61ac39, type: 2}
   playerPanel: {fileID: 173277814}
@@ -22716,7 +22770,6 @@ MonoBehaviour:
   fighterStateNow: 0
   fightStyleNow: 2
   AttackFocus: 1
-  FightStyleSONow: {fileID: 0}
   FightStatsShared: {fileID: 11400000, guid: a5d15e66e0aa09d44be11271206c3b72, type: 2}
   StaminaManager: {fileID: 11400000, guid: 90a1e0847c0907646b0046562f61ac39, type: 2}
   playerPanel: {fileID: 173277814}
@@ -22824,7 +22877,6 @@ MonoBehaviour:
   AttributeLevelManager: {fileID: 173277817}
   AttributeManager: {fileID: 0}
   Player: {fileID: 0}
-  FightStyleSO: {fileID: 0}
   CreateOpponentAttributeList: {fileID: 0}
   lvlOpponent: 2
   fightStyleValue: 0
@@ -23520,6 +23572,221 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1340500411}
   m_CullTransparentMesh: 1
+--- !u!1 &1347674749
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1347674751}
+  - component: {fileID: 1347674750}
+  m_Layer: 0
+  m_Name: Champions
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1347674750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1347674749}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c02d6430ca2b0094bbb487bd4f1549ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerList:
+  - {fileID: 8950005}
+  - {fileID: 904746758}
+  - {fileID: 1353562970}
+--- !u!4 &1347674751
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1347674749}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 301115437}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1353562965
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1353562966}
+  - component: {fileID: 1353562970}
+  - component: {fileID: 1353562969}
+  - component: {fileID: 1353562968}
+  - component: {fileID: 1353562967}
+  m_Layer: 0
+  m_Name: ===ChampionFixedCounterPuncher===
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1353562966
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1353562965}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1177787290}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1353562967
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1353562965}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38bafa0cc3496374798c9b0cb19e5934, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  randomInt: 0
+--- !u!114 &1353562968
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1353562965}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 092e4ff2e77bcb6488bf56f48bcdff90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1353562969
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1353562965}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74cedac8982027343a004d30f8313ef9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  knockDownCause: []
+  knockDownCausePlayerOne: []
+  knockDownCausePlayerTwo: []
+  SimulateFightDataSO: {fileID: 0}
+--- !u!114 &1353562970
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1353562965}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b68a43c679a7d2f40bafa15a9fa082fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  staminaInt: 0
+  headHealthInt: 0
+  name: CHAMP 3
+  fighterStateNow: 0
+  fightStyleNow: 2
+  AttackFocus: 0
+  FightStatsShared: {fileID: 11400000, guid: a5d15e66e0aa09d44be11271206c3b72, type: 2}
+  StaminaManager: {fileID: 11400000, guid: 90a1e0847c0907646b0046562f61ac39, type: 2}
+  playerPanel: {fileID: 173277814}
+  fightStatsGO: {fileID: 786479407}
+  Opponent: 1
+  Champion: 1
+  expPointsNow: 0
+  expPointsStart: 0
+  playerLvl: 3
+  playerLvlHealthHead: 2
+  playerLvlHealthBody: 2
+  playerLvlHealthStamina: 0
+  playerLvlHealthStaminaRecovery: 0
+  bodyHealthStart: 0
+  bodyHealthStatAfterLastFight: 0
+  headHealthStart: 0
+  headHealthAfterLastFight: 0
+  staminaHealthStart: 0
+  staminaHealthAfterLastFight: 0
+  staminaRecoveryBetweenRounds: 0
+  staminaRecoveryBetweenRoundsAfterLastFight: 0
+  guardHead: 0
+  guardHeadStatAfterLastFight: 0
+  guardBody: 0
+  guardBodyStatAfterLastFight: 0
+  guardFlexibleDuringFight: 0
+  guardFlexibleDuringFightAfterLastFight: 0
+  dodge: 0
+  dodgeAfterLastFight: 0
+  dodgeActive: 0
+  dodgeCompleted: 0
+  accuracy: 0
+  accuracyStatAfterLastFight: 0
+  strength: 0
+  strengthStatAfterLastFight: 0
+  endurance: 10
+  knockdownChance: 0
+  knockdownChanceStatAfterLastFight: 0
+  reduceOpponentStaminaRecoveryChance: 0
+  reduceOpponentStaminaRecoveryChanceStatAfterLastFight: 0
+  measureJabLimit: 0
+  measureJabPotentialIncreaseAccuracy: 0
+  jabKeepDistanceLvl: 0
+  jabKeepDistanceActive: 0
+  jabKeepDistanceStatBoost: 0
+  jabAccuracyHead: 0
+  jabStaminaUseHead: 0
+  jabDamageHead: 0
+  jabStaminaUseLow: 0
+  jabDamageLow: 0
+  crossAccuracyHead: 0
+  crossStaminaUseHead: 0
+  crossDamageHead: 0
+  crossKnockDownHead: 0
+  jabAccuracyBody: 0
+  jabStaminaUseBody: 0
+  jabDamageBody: 0
+  jabStaminaDamageBody: 0
+  crossAccuracyBody: 0
+  crossStaminaUseBody: 0
+  crossDamageBody: 0
+  crossStaminaDamageBody: 0
+  crossStaminaRecoveryDamageBody: 0
+  bodyHealthNow: 0
+  headHealthNow: 0
+  staminaHealthNow: 0
+  knockdownCounter: 0
+  damageTakenDuringRound: 0
+  actionsPerformed: 0
+  actionsSucceded: 0
+  actionsFailed: 0
+  measureJabSuccededDurigFight: 0
+  staminaBoundriePassed: 0
+  measureJabIncreaseAccuracyWhenActive: 0
+  oneTwoUnlocked: 0
 --- !u!1 &1365213223
 GameObject:
   m_ObjectHideFlags: 0
@@ -23668,7 +23935,6 @@ GameObject:
   - component: {fileID: 1371547195}
   - component: {fileID: 1371547196}
   - component: {fileID: 1371547198}
-  - component: {fileID: 1371547201}
   m_Layer: 0
   m_Name: ===GAMELOOP===
   m_TagString: Untagged
@@ -23687,6 +23953,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 110268853}
   - {fileID: 301115437}
   m_Father: {fileID: 604677753}
   m_RootOrder: 0
@@ -23755,9 +24022,8 @@ MonoBehaviour:
   playerRankedLvlForBelt: 2
   limitToRankUpPlayer: 1
   rankedForFirstTime: 0
-  CreateOpponentAttributeListSO: {fileID: 11400000, guid: 58af3305a0c21c249b63c2ad92d11b09, type: 2}
   playerListChampionsFixed: {fileID: 1177787288}
-  playerRanked: 0
+  playerRanked: 1
   lostAgainstChamp: 0
   victoriesAfterLossChampBeforeNewChance: 2
   victoriesAfterLossChamp: 0
@@ -23793,20 +24059,6 @@ MonoBehaviour:
   dodgeMechanicActive: 1
   dodgeSuccedNextPlayersTurn: 1
   dodgeFightPanel: {fileID: 2069104772}
---- !u!114 &1371547201
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1371547193}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e668fb2252442147ad0fe602a30edaa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  champChoosePanelGO: {fileID: 2146235956}
-  PlayerOne: {fileID: 62545094}
 --- !u!1 &1376181916
 GameObject:
   m_ObjectHideFlags: 0
@@ -24449,7 +24701,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 398583889}
         m_TargetAssemblyTypeName: opponentChooseButton, Assembly-CSharp
-        m_MethodName: chooseOpponentTwo
+        m_MethodName: chooseChampTwo
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -24802,7 +25054,6 @@ MonoBehaviour:
   fighterStateNow: 0
   fightStyleNow: 0
   AttackFocus: 0
-  FightStyleSONow: {fileID: 0}
   FightStatsShared: {fileID: 11400000, guid: a5d15e66e0aa09d44be11271206c3b72, type: 2}
   StaminaManager: {fileID: 11400000, guid: 90a1e0847c0907646b0046562f61ac39, type: 2}
   playerPanel: {fileID: 173277814}
@@ -24814,7 +25065,7 @@ MonoBehaviour:
   playerLvl: 0
   playerLvlHealthHead: 2
   playerLvlHealthBody: 2
-  playerLvlHealthStamina: 2
+  playerLvlHealthStamina: 3
   playerLvlHealthStaminaRecovery: 0
   bodyHealthStart: 0
   bodyHealthStatAfterLastFight: 0
@@ -24824,9 +25075,9 @@ MonoBehaviour:
   staminaHealthAfterLastFight: 0
   staminaRecoveryBetweenRounds: 0
   staminaRecoveryBetweenRoundsAfterLastFight: 0
-  guardHead: 4
+  guardHead: 6
   guardHeadStatAfterLastFight: 0
-  guardBody: 3
+  guardBody: 6
   guardBodyStatAfterLastFight: 0
   guardFlexibleDuringFight: 0
   guardFlexibleDuringFightAfterLastFight: 0
@@ -24834,12 +25085,12 @@ MonoBehaviour:
   dodgeAfterLastFight: 0
   dodgeActive: 0
   dodgeCompleted: 0
-  accuracy: 7
+  accuracy: 10
   accuracyStatAfterLastFight: 0
   strength: 6
   strengthStatAfterLastFight: 0
   endurance: 10
-  knockdownChance: 2
+  knockdownChance: 5
   knockdownChanceStatAfterLastFight: 0
   reduceOpponentStaminaRecoveryChance: 2
   reduceOpponentStaminaRecoveryChanceStatAfterLastFight: 0
@@ -25252,7 +25503,6 @@ MonoBehaviour:
   fighterStateNow: 0
   fightStyleNow: 1
   AttackFocus: 0
-  FightStyleSONow: {fileID: 0}
   FightStatsShared: {fileID: 11400000, guid: a5d15e66e0aa09d44be11271206c3b72, type: 2}
   StaminaManager: {fileID: 11400000, guid: 90a1e0847c0907646b0046562f61ac39, type: 2}
   playerPanel: {fileID: 173277814}
@@ -25344,7 +25594,6 @@ MonoBehaviour:
   AttributeLevelManager: {fileID: 173277817}
   AttributeManager: {fileID: 0}
   Player: {fileID: 0}
-  FightStyleSO: {fileID: 0}
   CreateOpponentAttributeList: {fileID: 0}
   lvlOpponent: 2
   fightStyleValue: 0
@@ -28057,7 +28306,6 @@ MonoBehaviour:
   fighterStateNow: 0
   fightStyleNow: 1
   AttackFocus: 0
-  FightStyleSONow: {fileID: 0}
   FightStatsShared: {fileID: 11400000, guid: a5d15e66e0aa09d44be11271206c3b72, type: 2}
   StaminaManager: {fileID: 11400000, guid: 90a1e0847c0907646b0046562f61ac39, type: 2}
   playerPanel: {fileID: 173277814}
@@ -28709,7 +28957,6 @@ MonoBehaviour:
   fighterStateNow: 0
   fightStyleNow: 1
   AttackFocus: 0
-  FightStyleSONow: {fileID: 0}
   FightStatsShared: {fileID: 11400000, guid: a5d15e66e0aa09d44be11271206c3b72, type: 2}
   StaminaManager: {fileID: 11400000, guid: 90a1e0847c0907646b0046562f61ac39, type: 2}
   playerPanel: {fileID: 173277814}
@@ -28817,7 +29064,6 @@ MonoBehaviour:
   AttributeLevelManager: {fileID: 173277817}
   AttributeManager: {fileID: 0}
   Player: {fileID: 0}
-  FightStyleSO: {fileID: 0}
   CreateOpponentAttributeList: {fileID: 0}
   lvlOpponent: 2
   fightStyleValue: 0
@@ -31207,7 +31453,6 @@ MonoBehaviour:
   AttributeLevelManager: {fileID: 0}
   AttributeManager: {fileID: 11400000, guid: 30f5078a30e32a14cb73413d6c61bb85, type: 2}
   Player: {fileID: 0}
-  FightStyleSO: {fileID: 11400000, guid: a816d357e5d55d841a366cda5da20cca, type: 2}
   CreateOpponentAttributeList: {fileID: 11400000, guid: 58af3305a0c21c249b63c2ad92d11b09, type: 2}
   lvlOpponent: 0
   fightStyleValue: 0
@@ -31242,7 +31487,6 @@ MonoBehaviour:
   fighterStateNow: 0
   fightStyleNow: 0
   AttackFocus: 0
-  FightStyleSONow: {fileID: 11400000, guid: a816d357e5d55d841a366cda5da20cca, type: 2}
   FightStatsShared: {fileID: 11400000, guid: a5d15e66e0aa09d44be11271206c3b72, type: 2}
   StaminaManager: {fileID: 11400000, guid: 90a1e0847c0907646b0046562f61ac39, type: 2}
   playerPanel: {fileID: 173277814}
@@ -32532,7 +32776,6 @@ MonoBehaviour:
   AttributeLevelManager: {fileID: 0}
   AttributeManager: {fileID: 11400000, guid: 30f5078a30e32a14cb73413d6c61bb85, type: 2}
   Player: {fileID: 0}
-  FightStyleSO: {fileID: 11400000, guid: a816d357e5d55d841a366cda5da20cca, type: 2}
   CreateOpponentAttributeList: {fileID: 11400000, guid: 58af3305a0c21c249b63c2ad92d11b09, type: 2}
   lvlOpponent: 0
   fightStyleValue: 0
@@ -32567,7 +32810,6 @@ MonoBehaviour:
   fighterStateNow: 0
   fightStyleNow: 0
   AttackFocus: 0
-  FightStyleSONow: {fileID: 11400000, guid: a816d357e5d55d841a366cda5da20cca, type: 2}
   FightStatsShared: {fileID: 11400000, guid: a5d15e66e0aa09d44be11271206c3b72, type: 2}
   StaminaManager: {fileID: 11400000, guid: 90a1e0847c0907646b0046562f61ac39, type: 2}
   playerPanel: {fileID: 173277814}
@@ -34692,7 +34934,6 @@ MonoBehaviour:
   AttributeLevelManager: {fileID: 0}
   AttributeManager: {fileID: 11400000, guid: 30f5078a30e32a14cb73413d6c61bb85, type: 2}
   Player: {fileID: 0}
-  FightStyleSO: {fileID: 11400000, guid: a816d357e5d55d841a366cda5da20cca, type: 2}
   CreateOpponentAttributeList: {fileID: 11400000, guid: 58af3305a0c21c249b63c2ad92d11b09, type: 2}
   lvlOpponent: 1
   fightStyleValue: 0
@@ -34725,9 +34966,8 @@ MonoBehaviour:
   headHealthInt: 0
   name: Random Two Lvl 1
   fighterStateNow: 0
-  fightStyleNow: 0
+  fightStyleNow: 1
   AttackFocus: 0
-  FightStyleSONow: {fileID: 11400000, guid: a816d357e5d55d841a366cda5da20cca, type: 2}
   FightStatsShared: {fileID: 11400000, guid: a5d15e66e0aa09d44be11271206c3b72, type: 2}
   StaminaManager: {fileID: 11400000, guid: 90a1e0847c0907646b0046562f61ac39, type: 2}
   playerPanel: {fileID: 173277814}

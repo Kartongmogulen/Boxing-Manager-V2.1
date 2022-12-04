@@ -31,7 +31,7 @@ public class afterFightUpdate : MonoBehaviour
 
         }
 
-        if (playerOneWon == false)
+        else if (playerOneWon == false)
         {
             fighterWhoWonText.text = PlayerOne.name + " lost!";
             VictoryByText.text = "Lost by: KO";

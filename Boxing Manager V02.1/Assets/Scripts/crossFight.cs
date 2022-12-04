@@ -30,7 +30,7 @@ public class crossFight : MonoBehaviour
         {
 
             dodgeCompletedOrNot = DodgeCheckCompletion.checkIfDodgeSucced(attacker.accuracy, defender.dodge);
-            Debug.Log("DodgeCompletedOrNot: " + dodgeCompletedOrNot);
+            //Debug.Log("DodgeCompletedOrNot: " + dodgeCompletedOrNot);
 
             defender.staminaHealthNow -= FightStatsShared.dodgeActiveReduceStaminaBy;
 
@@ -64,18 +64,13 @@ public class crossFight : MonoBehaviour
             knockdownState = Knockdown.willPlayerGetKnockdown(attacker, defender, true);
             if (knockdownState == true)
             {
-                Debug.Log("PlayerTwo KO");
+                //Debug.Log("PlayerTwo KO");
                 defender.fighterStateUpdate(true);
                 fightUIScripts.GetComponent<commentatorManager>().startTimer(attacker, defender, true, false, true, true);
                 defender.GetComponent<fightStatsKnockdownCause>().specialAttackCrossKO();
             }
             //9.1.2 END----------
-
-            //3.START-------------------
-            if (knockdownState == false)
-            {
-                fightUIScripts.GetComponent<commentatorManager>().startTimer(attacker, defender, true, false, true, false);
-            }
+            
         }
         else
         {
@@ -83,9 +78,25 @@ public class crossFight : MonoBehaviour
             attacker.fightStatisticsNumberOfFailedActions();
         }
         //3.END-------------------
+
+        //Debug.Log("Opponent: " + attacker.Opponent);
+        if (attacker.Opponent == false)
+        {
+            fightUIScripts.GetComponent<attackHeadManager>().playerOneCross();
+        }
+        else
+        {
+            fightUIScripts.GetComponent<attackHeadManager>().playerTwoCross();
+        }
+        //3.START-------------------
+        if (knockdownState == false)
+        {
+            fightUIScripts.GetComponent<commentatorManager>().startTimer(attacker, defender, true, false, true, false);
+        }
+
         //fightUIScripts.GetComponent<attackHeadManager>().playerOneCross();
         //4.START----------
-       attacker.GetComponent<player>().updateStamina(attacker.crossStaminaUseHead);
+        attacker.GetComponent<player>().updateStamina(attacker.crossStaminaUseHead);
         //4.END----------
 
         if (attacker.Opponent == false)

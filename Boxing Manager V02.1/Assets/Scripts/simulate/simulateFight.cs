@@ -407,6 +407,8 @@ public class simulateFight : MonoBehaviour
 
         SimulateFightDataSO.attackFocus.Add(PlayerTwo.AttackFocus.ToString());
 
+        SimulateFightDataSO.dodgeCompletedFight.Add(PlayerTwo.dodgeCompleted);
+
         /*
         Debug.Log("knockdownCause Count: " + PlayerOne.GetComponent<fightStatsKnockdownCause>().knockDownCause.Count);
 

@@ -7,6 +7,7 @@ using TMPro;
 public class playerStatsUIController : MonoBehaviour
 {
     public player Player;
+    public int i;
 
     public GameObject fightScriptsGO;
 
@@ -34,7 +35,7 @@ public class playerStatsUIController : MonoBehaviour
     public TextMeshProUGUI guardBodyDuringFightText;
 
     // Start is called before the first frame update
-    void Start()
+    /*void Start()
     {
         Player = fightScriptsGO.GetComponent<fightManager>().PlayerOne;
 
@@ -51,10 +52,17 @@ public class playerStatsUIController : MonoBehaviour
         healthBodyText.text = "Body: " + Player.bodyHealthNow;
         staminaHealthText.text = "Stamina, Max: " + Player.staminaHealthNow;
         staminaRecoveryHealthText.text = "Stamina, Rec: " + Player.staminaRecoveryBetweenRounds;
+    }*/
+
+        public void setUpPlayerGO()
+    {
+        Player = fightScriptsGO.GetComponent<fightManager>().PlayerOne;
     }
 
     public void updateText()
     {
+        //Debug.Log("UpdateText: " + i);
+
         expPointsLeftText.text = "Exp Points Left: " + Player.expPointsNow;
         AccuracyPointsText.text = "Accuracy: " + Player.accuracy;
         StrengthPointsText.text = "Strength: " + Player.strength;
@@ -68,7 +76,7 @@ public class playerStatsUIController : MonoBehaviour
         healthBodyText.text = "Body: " + Player.bodyHealthNow;
         staminaHealthText.text = "Stamina, Max: " + Player.staminaHealthNow;
         staminaRecoveryHealthText.text = "Stamina, Rec: " + Player.staminaRecoveryBetweenRounds;
-
+        i++;
     }
 
     //Uppdaterar stats som är provisoriska under matchen

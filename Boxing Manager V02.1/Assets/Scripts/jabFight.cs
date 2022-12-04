@@ -38,7 +38,7 @@ public class jabFight : MonoBehaviour
             //Debug.Log("Stamina before: " + defender.name + " " + defender.staminaHealthNow);
             defender.staminaHealthNow -= FightStatsShared.dodgeActiveReduceStaminaBy; //Minskar stamina på försvararen
             //Debug.Log("Stamina after: " + defender.name + " " + defender.staminaHealthNow);
-
+            Debug.Log("Dodge Completed: " + dodgeCompletedOrNot);
             if (dodgeCompletedOrNot == true)
             {
                 GetComponent<dodgeCompleted>().whatActionAfterSuccededDodge();
@@ -52,10 +52,10 @@ public class jabFight : MonoBehaviour
             actionCompletedOrNot = SuccedOrNotAction.action(attacker.accuracy - defender.jabKeepDistanceStatBoost, defender.guardHead, true);
         }
           
-        else
-        {
+        //else
+        //{
             actionCompletedOrNot = SuccedOrNotAction.action(attacker.accuracy, defender.guardHead, true);
-        }
+        //}
         //2.END-----------
 
         if (actionCompletedOrNot == true)
@@ -74,7 +74,14 @@ public class jabFight : MonoBehaviour
             fightUIScripts.GetComponent<commentatorManager>().startTimer(attacker, defender, true, true, false, false);
             attacker.fightStatisticsNumberOfFailedActions();
         }
-        fightUIScripts.GetComponent<attackHeadManager>().playerOneJab();
+        if (attacker.Opponent == false)
+        {
+            fightUIScripts.GetComponent<attackHeadManager>().playerOneJab();
+        }
+        else
+        {
+            fightUIScripts.GetComponent<attackHeadManager>().playerTwoJab();
+        }
         //3.END-------------------
 
         //4.START----------
@@ -239,6 +246,16 @@ public class jabFight : MonoBehaviour
             fightUIScripts.GetComponent<commentatorManager>().startTimer(attacker, defender, false, true, false, false);
             attacker.fightStatisticsNumberOfFailedActions();
         }
+
+        if (attacker.Opponent == false)
+        {
+            fightUIScripts.GetComponent<attackBodyManager>().playerOneJab();
+        }
+        else
+        {
+            fightUIScripts.GetComponent<attackBodyManager>().playerTwoJab();
+        }
+
         //fightUIScripts.GetComponent<attackHeadManager>().playerOneJab();
         //3.END-------------------
 

@@ -32,6 +32,12 @@ public class defendBodyManager : MonoBehaviour
 
     }
 
+    public void resetAfterFight()
+    {
+        playerOneExtraGuardInactive();
+        playerTwoExtraGuardBodyInactive();
+    }
+
     public void playerOneExtraGuardActive()
     {
 

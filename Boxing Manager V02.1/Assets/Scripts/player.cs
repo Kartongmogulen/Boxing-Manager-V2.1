@@ -9,7 +9,7 @@ public class player : MonoBehaviour
     public fighterState fighterStateNow;
     public fightStyle fightStyleNow;
     public attackFocus AttackFocus;
-    public fightStyleSO FightStyleSONow;
+    //public fightStyleSO FightStyleSONow;
     public fightStatsShared FightStatsShared;
     public staminaManager StaminaManager;
 
@@ -137,11 +137,12 @@ public class player : MonoBehaviour
         {
             //playerLvlHealthBody = playerLvl+1;
             //playerLvlHealthHead = playerLvl+1;
-            playerLvlHealthStamina = playerLvl;
+            //playerLvlHealthStamina = playerLvl;
+            //Debug.Log("Stamina Lvl: " + playerLvlHealthStamina);
 
-            bodyHealthStart = playerPanel.GetComponent<attributeLevelManager>().bodyHealthByLvl[playerLvlHealthBody];
-            headHealthStart = playerPanel.GetComponent<attributeLevelManager>().headHealthByLvl[playerLvlHealthHead];
-            staminaHealthStart = playerPanel.GetComponent<attributeLevelManager>().staminaHealthByLvl[playerLvlHealthStamina];
+            //bodyHealthStart = playerPanel.GetComponent<attributeLevelManager>().bodyHealthByLvl[playerLvlHealthBody];
+            //headHealthStart = playerPanel.GetComponent<attributeLevelManager>().headHealthByLvl[playerLvlHealthHead];
+            //staminaHealthStart = playerPanel.GetComponent<attributeLevelManager>().staminaHealthByLvl[playerLvlHealthStamina];
 
             startFight();
         }
@@ -150,9 +151,10 @@ public class player : MonoBehaviour
             bodyHealthStart = bodyHealthNow; //La till detta i samband med simuleringspanel då detta annars körs vid knappen som startar fighten.
 
             headHealthNow = playerPanel.GetComponent<attributeLevelManager>().headHealthByLvl[playerLvlHealthHead];
-            headHealthStart = headHealthNow; //La till detta i samband med simuleringspanel då detta annars körs vid knappen som startar fighten.
-
-        staminaHealthNow = playerPanel.GetComponent<attributeLevelManager>().staminaHealthByLvl[playerLvlHealthStamina];
+            headHealthStart = headHealthNow; //La till detta i samband med simuleringspanel då detta annars körs vid knappen som startar fighten.   
+       
+            staminaHealthNow = playerPanel.GetComponent<attributeLevelManager>().staminaHealthByLvl[playerLvlHealthStamina];
+        
             staminaHealthStart = staminaHealthNow;
 
             staminaRecoveryBetweenRounds = playerPanel.GetComponent<attributeLevelManager>().staminaHealthRecoveryByLvl[playerLvlHealthStaminaRecovery];
@@ -167,6 +169,14 @@ public class player : MonoBehaviour
         //Hälsa
         bodyHealthStart = playerPanel.GetComponent<attributeLevelManager>().bodyHealthByLvl[playerLvlHealthBody];
         headHealthStart = playerPanel.GetComponent<attributeLevelManager>().headHealthByLvl[playerLvlHealthHead];
+
+        //GetComponent<createOpponent>().staminaLvlChange();
+
+
+        if (playerLvlHealthStamina < 0)
+        {
+            playerLvlHealthStamina = 0;
+        }
         staminaHealthStart = playerPanel.GetComponent<attributeLevelManager>().staminaHealthByLvl[playerLvlHealthStamina];
 
         //Skada

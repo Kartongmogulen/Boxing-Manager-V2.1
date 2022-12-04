@@ -39,4 +39,10 @@ public class opponentChooseButton : MonoBehaviour
         fightUIScriptsGO.GetComponent<opponentStatsDisplayPanel>().updateChampion(0);
         fightScriptsGO.GetComponent<fightManager>().setOpponentIndex(0);
     }
+
+    public void chooseChampTwo()
+    {
+        fightUIScriptsGO.GetComponent<opponentStatsDisplayPanel>().updateChampion(1);
+        fightScriptsGO.GetComponent<fightManager>().setOpponentIndex(1);
+    }
 }

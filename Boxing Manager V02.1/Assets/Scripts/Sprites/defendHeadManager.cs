@@ -33,6 +33,12 @@ public class defendHeadManager : MonoBehaviour
 
     }
 
+    public void resetAfterFight()
+    {
+        playerOneExtraGuardHeadInactive();
+        playerTwoExtraGuardHeadInactive();
+    }
+
     public void playerOneExtraGuardHeadActive()
     {
 

@@ -9,25 +9,25 @@ public class rankingListVisualisation : MonoBehaviour
     public Text nrOneNameText;
     public Text nrTwoNameText;
 
-    public playerList PlayerList;
+    //public playerList PlayerList;
 
     // Start is called before the first frame update
-    void Start()
+   /*void Start()
     {
-        PlayerList = GetComponent<playerList>();
+        //PlayerList = GetComponent<playerList>();
 
         //updateRanking();
         /*champNameText.text = PlayerList.PlayerList[0].name;
         nrOneNameText.text = PlayerList.PlayerList[1].name;
         nrTwoNameText.text = PlayerList.PlayerList[2].name;
-        */
-    }
+        
+    }*/
 
-    public void updateRanking()
-    {
-        champNameText.text = PlayerList.PlayerList[0].name;
-        nrOneNameText.text = PlayerList.PlayerList[1].name;
-        nrTwoNameText.text = PlayerList.PlayerList[2].name;
-    }
+        /*public void updateRanking()
+        {
+            champNameText.text = PlayerList.PlayerList[0].name;
+            nrOneNameText.text = PlayerList.PlayerList[1].name;
+            nrTwoNameText.text = PlayerList.PlayerList[2].name;
+        }*/
 
-}
+    }

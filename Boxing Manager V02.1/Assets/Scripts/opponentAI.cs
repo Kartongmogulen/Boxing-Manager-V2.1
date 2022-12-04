@@ -46,7 +46,7 @@ public class opponentAI : MonoBehaviour
 
         if (Opponent.bodyHealthNow<= guardAreaExtraLimit * Opponent.bodyHealthStart / 100)
         {
-            Debug.Log("Skydda Kropp");
+            //Debug.Log("Skydda Kropp");
             Opponent.guardBody = Opponent.guardBodyStatAfterLastFight + Opponent.guardFlexibleDuringFight;
             //Mindre skydd Huvud
             Opponent.guardHead = Opponent.guardHeadStatAfterLastFight - Opponent.guardFlexibleDuringFight;

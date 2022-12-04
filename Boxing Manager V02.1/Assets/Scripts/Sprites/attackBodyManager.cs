@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class attackHeadManager : MonoBehaviour
+public class attackBodyManager : MonoBehaviour
 {
-    public GameObject attackHeadPlaceholder;
-    
+    public GameObject attackBodyPlaceholder;
+
     public GameObject playerOneLeftHand;
     public GameObject playerOneRightHand;
     public Texture playerOneLeftGlove;
@@ -19,38 +19,22 @@ public class attackHeadManager : MonoBehaviour
 
     private void Start()
     {
-        
+
         //attackHeadPlaceholder.SetActive(false);
-        
+
         playerOneLeftHand.GetComponent<RawImage>().texture = playerOneLeftGlove;
         playerOneLeftHand.GetComponent<RectTransform>().Rotate(new Vector3(0, 0, -90));
 
         playerOneRightHand.GetComponent<RawImage>().texture = playerOneRightGlove;
         playerOneRightHand.GetComponent<RectTransform>().Rotate(new Vector3(0, 0, -90));
-        
+
         playerTwoLeftHand.GetComponent<RawImage>().texture = playerTwoLeftGlove;
         playerTwoLeftHand.GetComponent<RectTransform>().Rotate(new Vector3(180, 0, 90));
-        
+
         playerTwoRightHand.GetComponent<RawImage>().texture = playerTwoRightGlove;
         playerTwoRightHand.GetComponent<RectTransform>().Rotate(new Vector3(0, -180, -90));
     }
 
-    public void playerOneJab()
-    {
-        attackHeadPlaceholder.SetActive(true);
-        playerOneLeftHand.SetActive(true);
-
-    }
-
-    
-    public void playerOneCross()
-    {
-        attackHeadPlaceholder.SetActive(true);
-        playerOneRightHand.SetActive(true);
-        
-
-    }
-    
     public void inactiveImage()
     {
         //attackHeadPlaceholder.SetActive(false);
@@ -61,18 +45,29 @@ public class attackHeadManager : MonoBehaviour
 
     }
 
+    public void playerOneJab()
+    {
+        attackBodyPlaceholder.SetActive(true);
+        playerOneLeftHand.SetActive(true);
+
+    }
+
+    public void playerOneCross()
+    {
+        attackBodyPlaceholder.SetActive(true);
+        playerOneRightHand.SetActive(true);
+    }
+
     public void playerTwoJab()
     {
-        attackHeadPlaceholder.SetActive(true);
+        attackBodyPlaceholder.SetActive(true);
         playerTwoLeftHand.SetActive(true);
 
     }
 
     public void playerTwoCross()
     {
-        attackHeadPlaceholder.SetActive(true);
+        attackBodyPlaceholder.SetActive(true);
         playerTwoRightHand.SetActive(true);
-        Debug.Log("AttackHeadManager: PlayerTwoCross");
-
     }
 }

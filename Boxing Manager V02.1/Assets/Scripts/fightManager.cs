@@ -101,21 +101,8 @@ public class fightManager : MonoBehaviour
         {
             fightUIScripts.GetComponent<commentatorManager>().waitSecondsBeforeUpdateOpponent = 0;
         }
-
-        //Väljer vilken lista av motståndare som ska användas.
-        if (PlayerOne.playerLvl == 0)
-        {
-            //PlayerTwo = opponentListRandomGO.GetComponent<playerList>().PlayerList[opponentIndex];
-            PlayerTwo = opponentListLvlZeroRandomGO.GetComponent<playerList>().PlayerList[opponentIndex];
-            opponentListRandomGO = opponentListLvlZeroRandomGO;
-        }
-
-        if (PlayerOne.playerLvl == 1)
-        {
-            //PlayerTwo = opponentListRandomGO.GetComponent<playerList>().PlayerList[opponentIndex];
-            PlayerTwo = opponentListLvlOneRandomGO.GetComponent<playerList>().PlayerList[opponentIndex];
-            opponentListRandomGO = opponentListLvlOneRandomGO;
-        }
+        PlayerStatsUIController.setUpPlayerGO();
+        PlayerStatsUIController.updateText();
     }
 
     /*
@@ -124,6 +111,25 @@ public class fightManager : MonoBehaviour
         StartCoroutine(checkIfNextRoundCanStart());
     }
     */
+
+        public void opponentListToUse()
+    {
+        Debug.Log("Player LvL: " + playerRankedLvl);
+        //Väljer vilken lista av motståndare som ska användas.
+        if (playerRankedLvl == 0)
+        {
+            //PlayerTwo = opponentListRandomGO.GetComponent<playerList>().PlayerList[opponentIndex];
+            //PlayerTwo = opponentListLvlZeroRandomGO.GetComponent<playerList>().PlayerList[opponentIndex];
+            opponentListRandomGO = opponentListLvlZeroRandomGO;
+        }
+
+       else if (playerRankedLvl == 1)
+        {
+            //PlayerTwo = opponentListRandomGO.GetComponent<playerList>().PlayerList[opponentIndex];
+            //PlayerTwo = opponentListLvlOneRandomGO.GetComponent<playerList>().PlayerList[opponentIndex];
+            opponentListRandomGO = opponentListLvlOneRandomGO;
+        }
+    }
 
     public void setOpponentIndex(int index)
     {
@@ -143,7 +149,7 @@ public class fightManager : MonoBehaviour
         GetComponent<roundManager>().resetRoundAfterFight();
         //PlayerTwo = opponentListGO.PlayerList[opponentIndex];
 
-
+        
         if (gameloopScripsGO.GetComponent<rankingManager>().playerRanked == false)
         {
             if (PlayerOne.playerLvl == 0)
@@ -161,9 +167,10 @@ public class fightManager : MonoBehaviour
             
 
         }
+        //Om spelaren är rankad
         else
         {
-            opponentIndex = 0;
+            //opponentIndex = 1;
             PlayerTwo = opponentListRankedGO.GetComponent<playerList>().PlayerList[opponentIndex];
    
         }
@@ -546,8 +553,8 @@ public void playerOneCrossHead(int accuracyBoost)
             fightUIScripts.GetComponent<commentatorManager>().startTimer(PlayerTwo, PlayerOne, false, true, false, false);
             PlayerTwo.fightStatisticsNumberOfFailedActions();
         }
-            //3.END-------------------
-
+        //3.END-------------------
+        fightUIScripts.GetComponent<attackBodyManager>().playerTwoJab();
         fightUIScripts.GetComponent<playerTwoActionDisplay>().updateTextLastActionRound("Jab Body", actionCompletedOrNot);
         fightUIScripts.GetComponent<playerTwoActionDisplay>().fightUpdateText(false, true);
         //4.START----------
@@ -605,7 +612,10 @@ public void playerOneCrossHead(int accuracyBoost)
             fightUIScripts.GetComponent<commentatorManager>().startTimer(PlayerOne, PlayerTwo, false, false, false, true);
             PlayerOne.fightStatisticsNumberOfFailedActions();
         }
-            //3.END-------------------
+                
+            fightUIScripts.GetComponent<attackBodyManager>().playerOneCross();
+               
+        //3.END-------------------
 
         //4.START----------
         PlayerOne.GetComponent<player>().updateStamina(PlayerOne.crossStaminaUseBody);
@@ -654,8 +664,8 @@ public void playerOneCrossHead(int accuracyBoost)
             fightUIScripts.GetComponent<commentatorManager>().startTimer(PlayerTwo, PlayerOne, false, false, false, true);
             PlayerTwo.fightStatisticsNumberOfFailedActions();
         }
-            //3.END-------------------
-
+        //3.END-------------------
+        fightUIScripts.GetComponent<attackBodyManager>().playerTwoCross();
         fightUIScripts.GetComponent<playerTwoActionDisplay>().updateTextLastActionRound("Cross Body", actionCompletedOrNot);
         fightUIScripts.GetComponent<playerTwoActionDisplay>().fightUpdateText(false, false);
         //4.START----------
@@ -746,19 +756,21 @@ public void playerOneCrossHead(int accuracyBoost)
         if (functionName == "playerTwoAction")
         {
 
-           
-            if (PlayerTwo.GetComponent<player>().AttackFocus == attackFocus.Head)
-            {
-                GetComponent<playerTwoAction>().headHunter(PlayerTwo);
-            }
-
-            if (PlayerTwo.GetComponent<player>().AttackFocus == attackFocus.Body)
-            {
-                GetComponent<playerTwoAction>().bodySnatcher(PlayerTwo);
-            }
             
+             if (PlayerTwo.GetComponent<player>().AttackFocus == attackFocus.Head)
+             {
+                 GetComponent<playerTwoAction>().headHunter(PlayerTwo);
+             }
+
+             if (PlayerTwo.GetComponent<player>().AttackFocus == attackFocus.Body)
+             {
+                 GetComponent<playerTwoAction>().bodySnatcher(PlayerTwo);
+             }
+             
 
             //TEST
+
+            //playerTwoCrossHead(0);
 
             //GetComponent<playerTwoAction>().jabHead();
             //GetComponent<playerTwoAction>().crossHead();
@@ -899,7 +911,6 @@ public void playerOneCrossHead(int accuracyBoost)
 
     public void fightEndedDecision()
     {
-
         endOfFight = true;
         fightPanelGO.active = false;
         victoryPanelGO.active = true;
@@ -996,7 +1007,7 @@ public void playerOneCrossHead(int accuracyBoost)
         
         PlayerOne.resetAfterFight();
         simulationPanelGO.GetComponent<simulateFight>().endOfFight();
-        gameloopScripsGO.GetComponent<rankingManager>().checkIfPlayerWillRankUp(PlayerOne.GetComponent<boxRecord>().victory - PlayerOne.GetComponent<boxRecord>().defeat);
+        gameloopScripsGO.GetComponent<rankingManager>().checkIfPlayerWillRankUp(PlayerOne.GetComponent<boxRecord>().victory);
         //Debug.Log("Vinster: " + PlayerOne.GetComponent<boxRecord>().victory);
         //Debug.Log("Förluster: " + PlayerOne.GetComponent<boxRecord>().defeat);
         playerRankedLvl = gameloopScripsGO.GetComponent<rankingManager>().playerRankedLvl;
@@ -1014,7 +1025,11 @@ public void playerOneCrossHead(int accuracyBoost)
             
         }
 
-        
+        //RESET UI
+        GetComponentInChildren<defendHeadManager>().resetAfterFight();
+        GetComponentInChildren<defendBodyManager>().resetAfterFight();
+        opponentListToUse();
+
     }
 
     public void startCheckIfNextRoundCanStart()

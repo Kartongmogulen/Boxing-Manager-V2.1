@@ -11,7 +11,7 @@ public class createOpponent : MonoBehaviour
     public attributeLevelManager AttributeLevelManager;
     public attributeManager AttributeManager;
     public player Player;
-    public fightStyleSO FightStyleSO;
+    //public fightStyleSO FightStyleSO;
     public createOpponentAttributeList CreateOpponentAttributeList;
 
     public int lvlOpponent;
@@ -43,7 +43,7 @@ public class createOpponent : MonoBehaviour
     public void createOpponentFunction()
     {
         fightStyle();
-        
+        staminaLvlChange();
         GetComponent<player>().Opponent = true;
 
         attackFocus();
@@ -61,18 +61,38 @@ public class createOpponent : MonoBehaviour
 
     public void fightStyle()
     {
-        
+        //Vid denna lvl kan inte motståndaren ha någon FightStyle
         if (lvlOpponent == 0)
         {
             GetComponent<player>().fightStyleNow = (global::fightStyle)0;
         }
+
+       else if (GetComponent<player>().fightStyleNow > 0)
+        {
+            return;
+        }
+
         else
         {
             fightStyleValue = Random.Range(1, System.Enum.GetValues(typeof(fightStyle)).Length);
-            Debug.Log(GetComponent<player>().name + " " + fightStyleValue);
+            //Debug.Log(GetComponent<player>().name + " " + fightStyleValue);
             GetComponent<player>().fightStyleNow = (global::fightStyle)fightStyleValue;
             //Debug.Log("FightStyle: " + GetComponent<player>().fightStyleNow);
         }
+    }
+
+    public void staminaLvlChange()
+    {
+        GetComponent<player>().playerLvlHealthStamina = GetComponent<player>().playerLvl;
+
+        if (GetComponent<player>().fightStyleNow.ToString() == "Slugger")
+        {
+            GetComponent<player>().playerLvlHealthStamina = GetComponent<player>().playerLvl + AttributeManager.sluggerStaminaChange;
+            //Debug.Log("StaminaLvlChange Slugger");
+        }
+
+        //Debug.Log("StaminaLvl: " + GetComponent<player>().playerLvlHealthStamina);
+
     }
 
     public void attackFocus()
@@ -98,13 +118,16 @@ public class createOpponent : MonoBehaviour
 
         if (GetComponent<player>().fightStyleNow.ToString() == "Boxerpuncher")
         {
-            Player.accuracy += AttributeManager.boxerpuncherStatBoostAccuracyStrength * (lvlOpponent + 1);
-            Player.strength += AttributeManager.boxerpuncherStatBoostAccuracyStrength * (lvlOpponent + 1);
+            Player.accuracy += AttributeManager.boxerpuncherStatBoostAccuracy * (lvlOpponent + 1);
+            Player.strength += AttributeManager.boxerpuncherStatBoostStrength * (lvlOpponent + 1);
         }
 
         if (GetComponent<player>().fightStyleNow.ToString() == "Slugger")
         {
             Player.strength += AttributeManager.sluggerStatBoostStrength * (lvlOpponent + 1);
+            //Debug.Log(Player.name + " Accuracy: " + Player.accuracy);
+            Player.accuracy += AttributeManager.sluggerAccuracyChange;
+            //Debug.Log(Player.name + "Accuracy: " + Player.accuracy);
         }
     }
 
@@ -114,7 +137,7 @@ public class createOpponent : MonoBehaviour
 
         if (GetComponent<player>().fightStyleNow.ToString() == "Slugger")
         {
-            Player.playerLvlHealthBody++;
+            Player.playerLvlHealthBody += AttributeManager.sluggerHealthBodyLvlChange;
         }
     }
 
@@ -125,7 +148,7 @@ public class createOpponent : MonoBehaviour
 
         if (GetComponent<player>().fightStyleNow.ToString() == "Slugger")
         {
-            Player.playerLvlHealthHead++;
+            Player.playerLvlHealthHead += AttributeManager.sluggerHealthHeadLvlChange;
             //Debug.Log("createOpp-script" + Player.playerLvlHealthHead);
         }
     }

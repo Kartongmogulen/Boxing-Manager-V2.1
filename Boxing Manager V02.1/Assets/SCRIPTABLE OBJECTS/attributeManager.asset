@@ -12,8 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 516539509a6519041abeee2583c66923, type: 3}
   m_Name: attributeManager
   m_EditorClassIdentifier: 
-  boxerpuncherStatBoostAccuracyStrength: 1
+  boxerpuncherStatBoostAccuracy: 1
+  boxerpuncherStatBoostStrength: 1
   sluggerStatBoostStrength: 2
+  sluggerAccuracyChange: -2
+  sluggerStaminaChange: -1
+  sluggerHealthHeadLvlChange: 1
+  sluggerHealthBodyLvlChange: 1
   counterpuncherDodgeBoost: 3
   costGuardFlexibleDuringFight: 3
   oneTwoAccuracyIncrease: 02000000

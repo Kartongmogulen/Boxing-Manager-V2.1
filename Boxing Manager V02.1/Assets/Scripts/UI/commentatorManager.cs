@@ -65,6 +65,7 @@ public class commentatorManager : MonoBehaviour
             commentatorText.text = "MISS!";
 
         GetComponent<attackHeadManager>().inactiveImage();
+        GetComponent<attackBodyManager>().inactiveImage();
     }
 
     public void actionCompletedUpdate()

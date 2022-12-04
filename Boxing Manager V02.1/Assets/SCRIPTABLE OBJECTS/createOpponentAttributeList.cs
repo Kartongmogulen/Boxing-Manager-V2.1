@@ -19,4 +19,5 @@ public class createOpponentAttributeList : ScriptableObject
     public int[] guardFlexibleMin;
 
     public int[] oneTwoComboProb;
+
 }
