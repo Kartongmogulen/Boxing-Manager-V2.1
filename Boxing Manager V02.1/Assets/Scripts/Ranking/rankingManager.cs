@@ -35,11 +35,11 @@ public class rankingManager : MonoBehaviour
     
     }
 
-    public void checkIfPlayerWillRankUp(int pointsNowPlayer)
+    public void checkIfPlayerWillRankUp(int victories)
     {
         //Debug.Log("Kontrollera om spelaren rankar upp script");
         //Debug.Log("Rank gräns: " + (limitToRankUpPlayer * playerRankedLvl + limitToRankUpPlayer));
-        if (limitToRankUpPlayer * playerRankedLvl + limitToRankUpPlayer <= pointsNowPlayer)
+        if (limitToRankUpPlayer * playerRankedLvl + limitToRankUpPlayer <= victories)
         {
             playerRankedLvl++;
             //Debug.Log("Rank up!");

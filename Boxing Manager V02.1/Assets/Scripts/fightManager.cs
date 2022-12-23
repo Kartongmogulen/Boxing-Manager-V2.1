@@ -322,6 +322,7 @@ public class fightManager : MonoBehaviour
         fightUIScripts.GetComponent<healthPanelTextUpdate>().updatePlayerOneText();
         PlayerOne.staminaRecoveryMinValue();
         PlayerOne.staminaEffect();
+        PlayerOne.guardUpdate();
         PlayerStatsUIController.fightStatModifierUpdate();
         //BUGG_UpdatePlayer1Int++;
     }
@@ -331,8 +332,10 @@ public class fightManager : MonoBehaviour
         //Debug.Log("UpdatePlayerTwo");
         fightUIScripts.GetComponent<healthPanelTextUpdate>().updateOpponentText();
         PlayerTwo.staminaRecoveryMinValue();
+        //PlayerTwo.guardFlexCalculation();
         PlayerTwo.staminaEffect();
-        
+        //PlayerTwo.guardUpdate();
+
         //StartCoroutine(checkIfNextRoundCanStart());
     }
 
@@ -818,6 +821,7 @@ public void playerOneCrossHead(int accuracyBoost)
         actionSuccededPlayerOne.text = "Action succeded: " + PlayerOne.actionsSucceded;
         actionFailedPlayerOne.text = "Action failed: " + PlayerOne.actionsFailed;
         GetComponent<opponentAI>().defenceGuardPoints(PlayerTwo);
+        //PlayerTwo.guardHead = PlayerTwo.GetComponent<playerDefence>().guardCalculationHead(Mathf.RoundToInt(Mathf.Round(StaminaManager.reduceGuardHead[staminaBoundriePassed])), guardHeadStatAfterLastFight, guardFlexibleHeadActive, guardFlexibleDuringFight);
     }
 
 
@@ -880,6 +884,7 @@ public void playerOneCrossHead(int accuracyBoost)
             if (PlayerTwo.Champion == true)
             {
                 gameloopScripsGO.GetComponent<rankingManager>().resultAgainstChamp(true);
+                PlayerTwo.GetComponent<playerIsChampionButton>().playerIsNowTheChampion();
             }
         }
         else
@@ -929,6 +934,7 @@ public void playerOneCrossHead(int accuracyBoost)
             if (PlayerTwo.Champion == true)
             {
                 gameloopScripsGO.GetComponent<rankingManager>().resultAgainstChamp(true);
+                PlayerTwo.GetComponent<playerIsChampionButton>().playerIsNowTheChampion();
             }
         }
         else
@@ -1019,6 +1025,13 @@ public void playerOneCrossHead(int accuracyBoost)
             
             for (int i = 0; opponentListRandomGO.GetComponent<playerList>().PlayerList.Count > i; i++)
             {
+                //FUNKADE INTE UTAN FASTNADE HELA TIDEN PÅ LVL 1 MOTSTÅND
+               /* //Spelaren kan bara möta motstånd med en lvl lägre. HAN INTE BALANSERA LVL 2 MOTSTÅND TIDIGARE. KAN TAS BORT SEN
+                if (playerRankedLvl == gameloopScripsGO.GetComponent<rankingManager>().playerRankedLvlForBelt)
+                {
+                    playerRankedLvl = gameloopScripsGO.GetComponent<rankingManager>().playerRankedLvlForBelt - 1;
+                }
+                */
                 opponentListRandomGO.GetComponent<playerList>().PlayerList[i].GetComponent<createOpponent>().setLvl(playerRankedLvl);
                 opponentListRandomGO.GetComponent<playerList>().PlayerList[i].GetComponent<createOpponent>().createOpponentFunction();
             }

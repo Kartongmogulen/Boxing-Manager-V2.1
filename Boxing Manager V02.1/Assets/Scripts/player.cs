@@ -14,8 +14,7 @@ public class player : MonoBehaviour
     public staminaManager StaminaManager;
 
     public GameObject playerPanel;
-    public GameObject fightStatsGO;
-   
+    public GameObject fightStatsGO;   
 
     public bool Opponent; //Om det är en motståndare eller egna spelaren
     public bool Champion; //True om spelaren är mästare
@@ -42,6 +41,8 @@ public class player : MonoBehaviour
     
     [Header("Defence")]
     public int guardHead;
+    public int guardHeadStaminaChange;
+    public int guardHeadBeforeEffects;
     public int guardHeadStatAfterLastFight;//Stat efter senaste matchen, går ej att gå lägre än detta.
     public int guardBody;
     public int guardBodyStatAfterLastFight;//Stat efter senaste matchen, går ej att gå lägre än detta.
@@ -51,7 +52,8 @@ public class player : MonoBehaviour
     public int dodgeAfterLastFight;
     public bool dodgeActive;
     public int dodgeCompleted;
-
+    public bool guardFlexibleBodyActive;
+    public bool guardFlexibleHeadActive;
 
     [Header("Attack Base")]
     public int accuracy; //Chans att träffa
@@ -372,8 +374,6 @@ public class player : MonoBehaviour
         staminaBoundriePassed = 0;
         accuracy = accuracyStatAfterLastFight;
         strength = strengthStatAfterLastFight;
-        guardHead = guardHeadStatAfterLastFight;
-        guardBody = guardBodyStatAfterLastFight;
 
         //Kontrollerar vilken nivå spelaren ligger på.
         for (int i = 0; StaminaManager.staminaBoundriesEffect.Length > i; i++)
@@ -389,20 +389,47 @@ public class player : MonoBehaviour
         //Debug.Log("Minska Accuracy: " + Mathf.Round(accuracy * StaminaManager.reduceAccuracy[staminaBoundriePassed] / 100));
 
         //Påverkar Guard
-        guardBody = Mathf.RoundToInt(Mathf.Round(guardBody - guardBody * StaminaManager.reduceGuardBody[staminaBoundriePassed] / 100));
+        //Debug.Log("GuardBody: " + guardBody);
+        //guardBody = Mathf.RoundToInt(Mathf.Round(guardBodyStatAfterLastFight - guardBodyStatAfterLastFight * StaminaManager.reduceGuardBody[staminaBoundriePassed] / 100));
+        //Debug.Log("GuardBody: " + guardBody);
         if (staminaBoundriePassed > 0 && guardBody == guardBodyStatAfterLastFight)
         {
-            guardBody--;
+            //guardBody--;
         }
 
-        guardHead = Mathf.RoundToInt(Mathf.Round(guardHead - guardHead * StaminaManager.reduceGuardHead[staminaBoundriePassed] / 100));
-        if (staminaBoundriePassed > 0 && guardHead == guardHeadStatAfterLastFight)
+        //Debug.Log("Guard Head Before Stamina Effect: " + guardHead);
+
+        //guardHeadStaminaChange = Mathf.RoundToInt(Mathf.Round(guardHeadStatAfterLastFight * StaminaManager.reduceGuardHead[staminaBoundriePassed] / 100));
+        //Debug.Log("staminaBoundriePassed: " + staminaBoundriePassed);
+        //Debug.Log("Stamina Change: " + Mathf.RoundToInt(Mathf.Round(StaminaManager.reduceGuardHead[staminaBoundriePassed])));
+        
+        //guardHead = playerDefence.guardCalculationHead(Mathf.RoundToInt(Mathf.Round(StaminaManager.reduceGuardHead[staminaBoundriePassed])), guardHeadStatAfterLastFight, guardFlexibleHeadActive, guardFlexibleDuringFight);
+
+        //guardHead = playerDefence.staminaCorrectionHead(Mathf.RoundToInt(StaminaManager.reduceGuardHead[staminaBoundriePassed] / 100), guardHeadStatAfterLastFight);
+        //guardHead = playerDefence.guardFlexHeadCheck(guardFlexibleHeadActive, guardHeadStatAfterLastFight, guardFlexibleDuringFight);
+        /*
+        if (staminaBoundriePassed > 0 && guardHeadBeforeEffects == guardHeadStatAfterLastFight && guardHeadStaminaChange<1)
         {
-            guardHead--;
+            guardHeadStaminaChange = 1;
         }
+
+        else if (staminaBoundriePassed > 0 && guardFlexibleHeadActive == false)
+        {
+            guardHead = guardHeadStatAfterLastFight - guardHeadStaminaChange;
+        }
+
+        if (guardFlexibleHeadActive == true)
+        {
+            guardHead = guardHead - guardHeadStaminaChange + guardFlexibleDuringFight;
+        }
+        else
+        {
+            guardHead = guardHead - guardHeadStaminaChange;
+        }
+        */
 
         //Påverkar Accuracy
-        accuracy = Mathf.RoundToInt(Mathf.Round(accuracy - accuracy * StaminaManager.reduceAccuracy[staminaBoundriePassed] / 100));
+            accuracy = Mathf.RoundToInt(Mathf.Round(accuracy - accuracy * StaminaManager.reduceAccuracy[staminaBoundriePassed] / 100));
         //Vid små tal ska man ändå påverkas t.ex om minskningen blir 0,5 är det i formeln ovanför = 0
         if (staminaBoundriePassed > 0 && accuracy == accuracyStatAfterLastFight)
         {
@@ -445,8 +472,53 @@ public class player : MonoBehaviour
 
         //Debug.Log(name + (" Accuracy: " + accuracy));
         //Debug.Log(name + (" Strength: " + strength));
-              
+
+    
     }
+
+    public void checkStaminaLvl()
+    {
+        staminaBoundriePassed = 0;
+
+        for (int i = 0; StaminaManager.staminaBoundriesEffect.Length > i; i++)
+        {
+            //Debug.Log(name);
+            //Debug.Log("Stamina Start: " + staminaHealthStart);
+            if ((Mathf.Round(staminaHealthNow * 100 / staminaHealthStart)) < StaminaManager.staminaBoundriesEffect[i])
+            {
+                staminaBoundriePassed++;
+            }
+        }
+    }
+
+   public void guardUpdate()
+    {
+        //Kontrollerar så rätt
+        checkStaminaLvl();
+
+        if (guardFlexibleHeadActive == true)
+        {
+            guardHead = playerDefence.guardCalculation(Mathf.RoundToInt(Mathf.Round(StaminaManager.reduceGuardHead[staminaBoundriePassed])), guardHeadStatAfterLastFight, guardFlexibleHeadActive, guardFlexibleDuringFight);
+            guardBody = guardBodyStatAfterLastFight - playerDefence.staminaCorrection(Mathf.RoundToInt(Mathf.Round(StaminaManager.reduceGuardBody[staminaBoundriePassed])), guardBodyStatAfterLastFight) - guardFlexibleDuringFight;
+        }
+
+        else if (guardFlexibleBodyActive == true)
+        {
+            guardBody = playerDefence.guardCalculation(Mathf.RoundToInt(Mathf.Round(StaminaManager.reduceGuardBody[staminaBoundriePassed])), guardBodyStatAfterLastFight, guardFlexibleBodyActive, guardFlexibleDuringFight);
+            guardHead = guardHeadStatAfterLastFight - playerDefence.staminaCorrection(Mathf.RoundToInt(Mathf.Round(StaminaManager.reduceGuardHead[staminaBoundriePassed])), guardHeadStatAfterLastFight) - guardFlexibleDuringFight;
+            
+        }
+
+        else 
+        {
+            guardHead = playerDefence.guardCalculation(Mathf.RoundToInt(Mathf.Round(StaminaManager.reduceGuardHead[staminaBoundriePassed])), guardHeadStatAfterLastFight, guardFlexibleHeadActive, guardFlexibleDuringFight);
+            //guardHead = playerDefence.guardCalculation(Mathf.RoundToInt(Mathf.Round(StaminaManager.reduceGuardHead[1])), guardHeadStatAfterLastFight, guardFlexibleHeadActive, guardFlexibleDuringFight);
+
+            guardBody = playerDefence.guardCalculation(Mathf.RoundToInt(Mathf.Round(StaminaManager.reduceGuardBody[staminaBoundriePassed])), guardBodyStatAfterLastFight, guardFlexibleBodyActive, guardFlexibleDuringFight);
+        }
+    }
+
+
 
 }
 

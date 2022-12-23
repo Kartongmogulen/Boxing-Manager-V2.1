@@ -32,5 +32,16 @@ public class playerRankTestRunner
         Assert.AreEqual(1, result);
 
     }
+    
+    [TestCase(3, 1, 6)]
+    [TestCase(3, 2, 7)]
+    public void checkPlayerLvlTwo(int limitToRankUpPlayer, int playerRankedLvl, int pointsNowPlayer)
+    {
+
+        int result = playerRank.checkPlayerRank(limitToRankUpPlayer, playerRankedLvl, pointsNowPlayer);
+
+        Assert.AreEqual(2, result);
+
+    }
 
 }

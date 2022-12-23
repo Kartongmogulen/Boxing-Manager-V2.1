@@ -432,6 +432,7 @@ GameObject:
   - component: {fileID: 8950004}
   - component: {fileID: 8950003}
   - component: {fileID: 8950006}
+  - component: {fileID: 8950007}
   m_Layer: 0
   m_Name: ===ChampionFixedSlugger===
   m_TagString: Untagged
@@ -521,6 +522,8 @@ MonoBehaviour:
   staminaRecoveryBetweenRounds: 0
   staminaRecoveryBetweenRoundsAfterLastFight: 0
   guardHead: 6
+  guardHeadStaminaChange: 0
+  guardHeadBeforeEffects: 0
   guardHeadStatAfterLastFight: 0
   guardBody: 6
   guardBodyStatAfterLastFight: 0
@@ -530,6 +533,8 @@ MonoBehaviour:
   dodgeAfterLastFight: 0
   dodgeActive: 0
   dodgeCompleted: 0
+  guardFlexibleBodyActive: 0
+  guardFlexibleHeadActive: 0
   accuracy: 6
   accuracyStatAfterLastFight: 0
   strength: 10
@@ -587,6 +592,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   randomInt: 0
+--- !u!114 &8950007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8950001}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e10f5470a963b014c8a90ca145ab4d6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chooseChampionButton: {fileID: 1093063326}
+  chooseChampionText: {fileID: 1992969334}
 --- !u!1 &12304204
 GameObject:
   m_ObjectHideFlags: 0
@@ -2005,6 +2024,8 @@ MonoBehaviour:
   staminaRecoveryBetweenRounds: 5
   staminaRecoveryBetweenRoundsAfterLastFight: 0
   guardHead: 1
+  guardHeadStaminaChange: 0
+  guardHeadBeforeEffects: 0
   guardHeadStatAfterLastFight: 0
   guardBody: 1
   guardBodyStatAfterLastFight: 0
@@ -2014,6 +2035,8 @@ MonoBehaviour:
   dodgeAfterLastFight: 0
   dodgeActive: 0
   dodgeCompleted: 0
+  guardFlexibleBodyActive: 0
+  guardFlexibleHeadActive: 0
   accuracy: 3
   accuracyStatAfterLastFight: 0
   strength: 3
@@ -2571,6 +2594,8 @@ MonoBehaviour:
   staminaRecoveryBetweenRounds: 0
   staminaRecoveryBetweenRoundsAfterLastFight: 0
   guardHead: 0
+  guardHeadStaminaChange: 0
+  guardHeadBeforeEffects: 0
   guardHeadStatAfterLastFight: 0
   guardBody: 0
   guardBodyStatAfterLastFight: 0
@@ -2580,6 +2605,8 @@ MonoBehaviour:
   dodgeAfterLastFight: 0
   dodgeActive: 0
   dodgeCompleted: 0
+  guardFlexibleBodyActive: 0
+  guardFlexibleHeadActive: 0
   accuracy: 0
   accuracyStatAfterLastFight: 0
   strength: 0
@@ -2654,8 +2681,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   guardHead: 0
   guardHeadStatAfterLastFight: 0
+  guardFlexibleHeadActive: 0
+  guardHeadCorrectedForStamina: 0
   guardBody: 0
   guardBodyStatAfterLastFight: 0
+  guardFlexibleBodyActive: 0
   guardFlexibleDuringFight: 0
   guardFlexibleDuringFightAfterLastFight: 0
 --- !u!114 &92226867
@@ -3226,7 +3256,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &110268853
 Transform:
   m_ObjectHideFlags: 0
@@ -4621,6 +4651,8 @@ MonoBehaviour:
   staminaRecoveryBetweenRounds: 0
   staminaRecoveryBetweenRoundsAfterLastFight: 0
   guardHead: 0
+  guardHeadStaminaChange: 0
+  guardHeadBeforeEffects: 0
   guardHeadStatAfterLastFight: 0
   guardBody: 0
   guardBodyStatAfterLastFight: 0
@@ -4630,6 +4662,8 @@ MonoBehaviour:
   dodgeAfterLastFight: 0
   dodgeActive: 0
   dodgeCompleted: 0
+  guardFlexibleBodyActive: 0
+  guardFlexibleHeadActive: 0
   accuracy: 0
   accuracyStatAfterLastFight: 0
   strength: 0
@@ -4708,8 +4742,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   guardHead: 0
   guardHeadStatAfterLastFight: 0
+  guardFlexibleHeadActive: 0
+  guardHeadCorrectedForStamina: 0
   guardBody: 0
   guardBodyStatAfterLastFight: 0
+  guardFlexibleBodyActive: 0
   guardFlexibleDuringFight: 0
   guardFlexibleDuringFightAfterLastFight: 0
 --- !u!114 &185555404
@@ -6159,6 +6196,8 @@ MonoBehaviour:
   staminaRecoveryBetweenRounds: 0
   staminaRecoveryBetweenRoundsAfterLastFight: 0
   guardHead: 10
+  guardHeadStaminaChange: 0
+  guardHeadBeforeEffects: 0
   guardHeadStatAfterLastFight: 0
   guardBody: 6
   guardBodyStatAfterLastFight: 0
@@ -6168,6 +6207,8 @@ MonoBehaviour:
   dodgeAfterLastFight: 0
   dodgeActive: 0
   dodgeCompleted: 0
+  guardFlexibleBodyActive: 0
+  guardFlexibleHeadActive: 0
   accuracy: 8
   accuracyStatAfterLastFight: 0
   strength: 8
@@ -8607,8 +8648,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   guardHead: 0
   guardHeadStatAfterLastFight: 0
+  guardFlexibleHeadActive: 0
+  guardHeadCorrectedForStamina: 0
   guardBody: 0
   guardBodyStatAfterLastFight: 0
+  guardFlexibleBodyActive: 0
   guardFlexibleDuringFight: 0
   guardFlexibleDuringFightAfterLastFight: 0
 --- !u!114 &417469756
@@ -8683,6 +8727,8 @@ MonoBehaviour:
   staminaRecoveryBetweenRounds: 0
   staminaRecoveryBetweenRoundsAfterLastFight: 0
   guardHead: 0
+  guardHeadStaminaChange: 0
+  guardHeadBeforeEffects: 0
   guardHeadStatAfterLastFight: 0
   guardBody: 0
   guardBodyStatAfterLastFight: 0
@@ -8692,6 +8738,8 @@ MonoBehaviour:
   dodgeAfterLastFight: 0
   dodgeActive: 0
   dodgeCompleted: 0
+  guardFlexibleBodyActive: 0
+  guardFlexibleHeadActive: 0
   accuracy: 0
   accuracyStatAfterLastFight: 0
   strength: 0
@@ -9256,7 +9304,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &461299458
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9272,10 +9320,10 @@ RectTransform:
   m_Father: {fileID: 2146235960}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 150, y: -305.4486}
+  m_SizeDelta: {x: 300, y: 122.17944}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &461299459
 MonoBehaviour:
@@ -9677,6 +9725,8 @@ MonoBehaviour:
   staminaRecoveryBetweenRounds: 0
   staminaRecoveryBetweenRoundsAfterLastFight: 0
   guardHead: 6
+  guardHeadStaminaChange: 0
+  guardHeadBeforeEffects: 0
   guardHeadStatAfterLastFight: 0
   guardBody: 6
   guardBodyStatAfterLastFight: 0
@@ -9686,6 +9736,8 @@ MonoBehaviour:
   dodgeAfterLastFight: 0
   dodgeActive: 0
   dodgeCompleted: 0
+  guardFlexibleBodyActive: 0
+  guardFlexibleHeadActive: 0
   accuracy: 6
   accuracyStatAfterLastFight: 0
   strength: 10
@@ -11371,6 +11423,8 @@ MonoBehaviour:
   staminaRecoveryBetweenRounds: 0
   staminaRecoveryBetweenRoundsAfterLastFight: 0
   guardHead: 6
+  guardHeadStaminaChange: 0
+  guardHeadBeforeEffects: 0
   guardHeadStatAfterLastFight: 0
   guardBody: 6
   guardBodyStatAfterLastFight: 0
@@ -11380,6 +11434,8 @@ MonoBehaviour:
   dodgeAfterLastFight: 0
   dodgeActive: 0
   dodgeCompleted: 0
+  guardFlexibleBodyActive: 0
+  guardFlexibleHeadActive: 0
   accuracy: 8
   accuracyStatAfterLastFight: 0
   strength: 5
@@ -12698,7 +12754,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 25.157715}
-  m_SizeDelta: {x: 500, y: 75}
+  m_SizeDelta: {x: 750, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &648536712
 MonoBehaviour:
@@ -15121,6 +15177,8 @@ MonoBehaviour:
   staminaRecoveryBetweenRounds: 0
   staminaRecoveryBetweenRoundsAfterLastFight: 0
   guardHead: 2
+  guardHeadStaminaChange: 0
+  guardHeadBeforeEffects: 0
   guardHeadStatAfterLastFight: 0
   guardBody: 1
   guardBodyStatAfterLastFight: 0
@@ -15130,6 +15188,8 @@ MonoBehaviour:
   dodgeAfterLastFight: 0
   dodgeActive: 0
   dodgeCompleted: 0
+  guardFlexibleBodyActive: 0
+  guardFlexibleHeadActive: 0
   accuracy: 5
   accuracyStatAfterLastFight: 0
   strength: 1
@@ -15188,8 +15248,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   guardHead: 0
   guardHeadStatAfterLastFight: 0
+  guardFlexibleHeadActive: 0
+  guardHeadCorrectedForStamina: 0
   guardBody: 0
   guardBodyStatAfterLastFight: 0
+  guardFlexibleBodyActive: 0
   guardFlexibleDuringFight: 0
   guardFlexibleDuringFightAfterLastFight: 0
 --- !u!114 &818073723
@@ -16138,6 +16201,8 @@ MonoBehaviour:
   staminaRecoveryBetweenRounds: 0
   staminaRecoveryBetweenRoundsAfterLastFight: 0
   guardHead: 10
+  guardHeadStaminaChange: 0
+  guardHeadBeforeEffects: 0
   guardHeadStatAfterLastFight: 0
   guardBody: 10
   guardBodyStatAfterLastFight: 0
@@ -16147,6 +16212,8 @@ MonoBehaviour:
   dodgeAfterLastFight: 0
   dodgeActive: 0
   dodgeCompleted: 0
+  guardFlexibleBodyActive: 0
+  guardFlexibleHeadActive: 0
   accuracy: 100
   accuracyStatAfterLastFight: 0
   strength: 100
@@ -16205,8 +16272,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   guardHead: 0
   guardHeadStatAfterLastFight: 0
+  guardFlexibleHeadActive: 0
+  guardHeadCorrectedForStamina: 0
   guardBody: 0
   guardBodyStatAfterLastFight: 0
+  guardFlexibleBodyActive: 0
   guardFlexibleDuringFight: 0
   guardFlexibleDuringFightAfterLastFight: 0
 --- !u!114 &875270635
@@ -16735,7 +16805,9 @@ GameObject:
   - component: {fileID: 904746758}
   - component: {fileID: 904746757}
   - component: {fileID: 904746756}
+  - component: {fileID: 904746759}
   - component: {fileID: 904746755}
+  - component: {fileID: 904746760}
   m_Layer: 0
   m_Name: ===ChampionFixedBoxerPuncher===
   m_TagString: Untagged
@@ -16838,6 +16910,8 @@ MonoBehaviour:
   staminaRecoveryBetweenRounds: 0
   staminaRecoveryBetweenRoundsAfterLastFight: 0
   guardHead: 6
+  guardHeadStaminaChange: 0
+  guardHeadBeforeEffects: 0
   guardHeadStatAfterLastFight: 0
   guardBody: 6
   guardBodyStatAfterLastFight: 0
@@ -16847,6 +16921,8 @@ MonoBehaviour:
   dodgeAfterLastFight: 0
   dodgeActive: 0
   dodgeCompleted: 0
+  guardFlexibleBodyActive: 0
+  guardFlexibleHeadActive: 0
   accuracy: 10
   accuracyStatAfterLastFight: 0
   strength: 7
@@ -16891,6 +16967,41 @@ MonoBehaviour:
   staminaBoundriePassed: 0
   measureJabIncreaseAccuracyWhenActive: 0
   oneTwoUnlocked: 0
+--- !u!114 &904746759
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 904746753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e10f5470a963b014c8a90ca145ab4d6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chooseChampionButton: {fileID: 1398259067}
+  chooseChampionText: {fileID: 1053379023}
+--- !u!114 &904746760
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 904746753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61057167c6908204a9d7be832f0a7f74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guardHead: 0
+  guardHeadStatAfterLastFight: 0
+  guardFlexibleHeadActive: 0
+  guardHeadCorrectedForStamina: 0
+  guardBody: 0
+  guardBodyStatAfterLastFight: 0
+  guardFlexibleBodyActive: 0
+  guardFlexibleDuringFight: 0
+  guardFlexibleDuringFightAfterLastFight: 0
 --- !u!1 &915888042
 GameObject:
   m_ObjectHideFlags: 0
@@ -18439,6 +18550,8 @@ MonoBehaviour:
   staminaRecoveryBetweenRounds: 0
   staminaRecoveryBetweenRoundsAfterLastFight: 0
   guardHead: 10
+  guardHeadStaminaChange: 0
+  guardHeadBeforeEffects: 0
   guardHeadStatAfterLastFight: 0
   guardBody: 6
   guardBodyStatAfterLastFight: 0
@@ -18448,6 +18561,8 @@ MonoBehaviour:
   dodgeAfterLastFight: 0
   dodgeActive: 0
   dodgeCompleted: 0
+  guardFlexibleBodyActive: 0
+  guardFlexibleHeadActive: 0
   accuracy: 8
   accuracyStatAfterLastFight: 0
   strength: 8
@@ -18739,6 +18854,8 @@ MonoBehaviour:
   staminaRecoveryBetweenRounds: 0
   staminaRecoveryBetweenRoundsAfterLastFight: 0
   guardHead: 6
+  guardHeadStaminaChange: 0
+  guardHeadBeforeEffects: 0
   guardHeadStatAfterLastFight: 0
   guardBody: 6
   guardBodyStatAfterLastFight: 0
@@ -18748,6 +18865,8 @@ MonoBehaviour:
   dodgeAfterLastFight: 0
   dodgeActive: 0
   dodgeCompleted: 0
+  guardFlexibleBodyActive: 0
+  guardFlexibleHeadActive: 0
   accuracy: 8
   accuracyStatAfterLastFight: 0
   strength: 5
@@ -22162,6 +22281,8 @@ MonoBehaviour:
   staminaRecoveryBetweenRounds: 0
   staminaRecoveryBetweenRoundsAfterLastFight: 0
   guardHead: 7
+  guardHeadStaminaChange: 0
+  guardHeadBeforeEffects: 0
   guardHeadStatAfterLastFight: 0
   guardBody: 2
   guardBodyStatAfterLastFight: 0
@@ -22171,6 +22292,8 @@ MonoBehaviour:
   dodgeAfterLastFight: 0
   dodgeActive: 0
   dodgeCompleted: 0
+  guardFlexibleBodyActive: 0
+  guardFlexibleHeadActive: 0
   accuracy: 5
   accuracyStatAfterLastFight: 0
   strength: 3
@@ -22792,6 +22915,8 @@ MonoBehaviour:
   staminaRecoveryBetweenRounds: 0
   staminaRecoveryBetweenRoundsAfterLastFight: 0
   guardHead: 6
+  guardHeadStaminaChange: 0
+  guardHeadBeforeEffects: 0
   guardHeadStatAfterLastFight: 0
   guardBody: 6
   guardBodyStatAfterLastFight: 0
@@ -22801,6 +22926,8 @@ MonoBehaviour:
   dodgeAfterLastFight: 0
   dodgeActive: 0
   dodgeCompleted: 0
+  guardFlexibleBodyActive: 0
+  guardFlexibleHeadActive: 0
   accuracy: 6
   accuracyStatAfterLastFight: 0
   strength: 10
@@ -23734,6 +23861,8 @@ MonoBehaviour:
   staminaRecoveryBetweenRounds: 0
   staminaRecoveryBetweenRoundsAfterLastFight: 0
   guardHead: 0
+  guardHeadStaminaChange: 0
+  guardHeadBeforeEffects: 0
   guardHeadStatAfterLastFight: 0
   guardBody: 0
   guardBodyStatAfterLastFight: 0
@@ -23743,6 +23872,8 @@ MonoBehaviour:
   dodgeAfterLastFight: 0
   dodgeActive: 0
   dodgeCompleted: 0
+  guardFlexibleBodyActive: 0
+  guardFlexibleHeadActive: 0
   accuracy: 0
   accuracyStatAfterLastFight: 0
   strength: 0
@@ -24025,7 +24156,7 @@ MonoBehaviour:
   playerListChampionsFixed: {fileID: 1177787288}
   playerRanked: 1
   lostAgainstChamp: 0
-  victoriesAfterLossChampBeforeNewChance: 2
+  victoriesAfterLossChampBeforeNewChance: 0
   victoriesAfterLossChamp: 0
   playerPanelUIGO: {fileID: 398583886}
   fightScriptsGO: {fileID: 1178195550}
@@ -25076,6 +25207,8 @@ MonoBehaviour:
   staminaRecoveryBetweenRounds: 0
   staminaRecoveryBetweenRoundsAfterLastFight: 0
   guardHead: 6
+  guardHeadStaminaChange: 0
+  guardHeadBeforeEffects: 0
   guardHeadStatAfterLastFight: 0
   guardBody: 6
   guardBodyStatAfterLastFight: 0
@@ -25085,12 +25218,14 @@ MonoBehaviour:
   dodgeAfterLastFight: 0
   dodgeActive: 0
   dodgeCompleted: 0
-  accuracy: 10
+  guardFlexibleBodyActive: 0
+  guardFlexibleHeadActive: 0
+  accuracy: 1
   accuracyStatAfterLastFight: 0
   strength: 6
   strengthStatAfterLastFight: 0
   endurance: 10
-  knockdownChance: 5
+  knockdownChance: 1
   knockdownChanceStatAfterLastFight: 0
   reduceOpponentStaminaRecoveryChance: 2
   reduceOpponentStaminaRecoveryChanceStatAfterLastFight: 0
@@ -25525,6 +25660,8 @@ MonoBehaviour:
   staminaRecoveryBetweenRounds: 0
   staminaRecoveryBetweenRoundsAfterLastFight: 0
   guardHead: 4
+  guardHeadStaminaChange: 0
+  guardHeadBeforeEffects: 0
   guardHeadStatAfterLastFight: 0
   guardBody: 4
   guardBodyStatAfterLastFight: 0
@@ -25534,6 +25671,8 @@ MonoBehaviour:
   dodgeAfterLastFight: 0
   dodgeActive: 0
   dodgeCompleted: 0
+  guardFlexibleBodyActive: 0
+  guardFlexibleHeadActive: 0
   accuracy: 8
   accuracyStatAfterLastFight: 0
   strength: 3
@@ -28328,6 +28467,8 @@ MonoBehaviour:
   staminaRecoveryBetweenRounds: 0
   staminaRecoveryBetweenRoundsAfterLastFight: 0
   guardHead: 3
+  guardHeadStaminaChange: 0
+  guardHeadBeforeEffects: 0
   guardHeadStatAfterLastFight: 0
   guardBody: 2
   guardBodyStatAfterLastFight: 0
@@ -28337,6 +28478,8 @@ MonoBehaviour:
   dodgeAfterLastFight: 0
   dodgeActive: 0
   dodgeCompleted: 0
+  guardFlexibleBodyActive: 0
+  guardFlexibleHeadActive: 0
   accuracy: 3
   accuracyStatAfterLastFight: 0
   strength: 5
@@ -28979,6 +29122,8 @@ MonoBehaviour:
   staminaRecoveryBetweenRounds: 0
   staminaRecoveryBetweenRoundsAfterLastFight: 0
   guardHead: 4
+  guardHeadStaminaChange: 0
+  guardHeadBeforeEffects: 0
   guardHeadStatAfterLastFight: 0
   guardBody: 4
   guardBodyStatAfterLastFight: 0
@@ -28988,6 +29133,8 @@ MonoBehaviour:
   dodgeAfterLastFight: 0
   dodgeActive: 0
   dodgeCompleted: 0
+  guardFlexibleBodyActive: 0
+  guardFlexibleHeadActive: 0
   accuracy: 8
   accuracyStatAfterLastFight: 0
   strength: 3
@@ -31509,6 +31656,8 @@ MonoBehaviour:
   staminaRecoveryBetweenRounds: 0
   staminaRecoveryBetweenRoundsAfterLastFight: 0
   guardHead: 4
+  guardHeadStaminaChange: 0
+  guardHeadBeforeEffects: 0
   guardHeadStatAfterLastFight: 0
   guardBody: 2
   guardBodyStatAfterLastFight: 0
@@ -31518,6 +31667,8 @@ MonoBehaviour:
   dodgeAfterLastFight: 0
   dodgeActive: 0
   dodgeCompleted: 0
+  guardFlexibleBodyActive: 0
+  guardFlexibleHeadActive: 0
   accuracy: 4
   accuracyStatAfterLastFight: 0
   strength: 1
@@ -31576,8 +31727,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   guardHead: 0
   guardHeadStatAfterLastFight: 0
+  guardFlexibleHeadActive: 0
+  guardHeadCorrectedForStamina: 0
   guardBody: 0
   guardBodyStatAfterLastFight: 0
+  guardFlexibleBodyActive: 0
   guardFlexibleDuringFight: 0
   guardFlexibleDuringFightAfterLastFight: 0
 --- !u!114 &1796192622
@@ -32756,8 +32910,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   guardHead: 0
   guardHeadStatAfterLastFight: 0
+  guardFlexibleHeadActive: 0
+  guardHeadCorrectedForStamina: 0
   guardBody: 0
   guardBodyStatAfterLastFight: 0
+  guardFlexibleBodyActive: 0
   guardFlexibleDuringFight: 0
   guardFlexibleDuringFightAfterLastFight: 0
 --- !u!114 &1878049957
@@ -32832,6 +32989,8 @@ MonoBehaviour:
   staminaRecoveryBetweenRounds: 0
   staminaRecoveryBetweenRoundsAfterLastFight: 0
   guardHead: 4
+  guardHeadStaminaChange: 0
+  guardHeadBeforeEffects: 0
   guardHeadStatAfterLastFight: 0
   guardBody: 2
   guardBodyStatAfterLastFight: 0
@@ -32841,6 +33000,8 @@ MonoBehaviour:
   dodgeAfterLastFight: 0
   dodgeActive: 0
   dodgeCompleted: 0
+  guardFlexibleBodyActive: 0
+  guardFlexibleHeadActive: 0
   accuracy: 4
   accuracyStatAfterLastFight: 0
   strength: 1
@@ -34202,7 +34363,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -48}
-  m_SizeDelta: {x: 500, y: 75}
+  m_SizeDelta: {x: 750, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1981463332
 MonoBehaviour:
@@ -34914,8 +35075,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   guardHead: 0
   guardHeadStatAfterLastFight: 0
+  guardFlexibleHeadActive: 0
+  guardHeadCorrectedForStamina: 0
   guardBody: 0
   guardBodyStatAfterLastFight: 0
+  guardFlexibleBodyActive: 0
   guardFlexibleDuringFight: 0
   guardFlexibleDuringFightAfterLastFight: 0
 --- !u!114 &2013029646
@@ -34990,6 +35154,8 @@ MonoBehaviour:
   staminaRecoveryBetweenRounds: 0
   staminaRecoveryBetweenRoundsAfterLastFight: 0
   guardHead: 0
+  guardHeadStaminaChange: 0
+  guardHeadBeforeEffects: 0
   guardHeadStatAfterLastFight: 0
   guardBody: 0
   guardBodyStatAfterLastFight: 0
@@ -34999,6 +35165,8 @@ MonoBehaviour:
   dodgeAfterLastFight: 0
   dodgeActive: 0
   dodgeCompleted: 0
+  guardFlexibleBodyActive: 0
+  guardFlexibleHeadActive: 0
   accuracy: 0
   accuracyStatAfterLastFight: 0
   strength: 0

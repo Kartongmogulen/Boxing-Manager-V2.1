@@ -12,30 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 610da435472981c468bb9bd5605a3d71, type: 3}
   m_Name: simulateFightDataSO
   m_EditorClassIdentifier: 
-  playerOneWinner: 0100010101
+  playerOneWinner: 0101010101
   howTheFightEnded:
-  - Decision
   - KO
   - KO
-  - KO
-  - KO
-  endedInRound: 0600000004000000040000000100000002000000
+  endedInRound: 0100000001000000
   fightStylePlayerOne:
-  - None
-  - None
-  - None
   - None
   - None
   fightStylePlayerTwo:
   - Counterpuncher
   - Counterpuncher
-  - Counterpuncher
-  - Counterpuncher
-  - Counterpuncher
   attackFocus:
   - Head
-  - Body
-  - Body
-  - Body
-  - Body
-  dodgeCompletedFight: 0400000000000000070000000000000000000000
+  - Head
+  dodgeCompletedFight: 0000000000000000

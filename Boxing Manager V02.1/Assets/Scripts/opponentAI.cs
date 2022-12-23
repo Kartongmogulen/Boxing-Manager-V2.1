@@ -30,50 +30,52 @@ public class opponentAI : MonoBehaviour
     {
         //Kontrollera om något område är under gränsen för extra guard
 
-        //Debug.Log("Gräns Skydd: " + guardAreaExtraLimit * Opponent.headHealthStart / 100);
+            //Debug.Log("Gräns Skydd: " + guardAreaExtraLimit * Opponent.headHealthStart / 100);
 
-        if (Opponent.headHealthNow <= guardAreaExtraLimit * Opponent.headHealthStart/100)
+        if (Opponent.headHealthNow <= guardAreaExtraLimit * Opponent.headHealthStart / 100 && Opponent.bodyHealthNow <= guardAreaExtraLimit * Opponent.bodyHealthStart / 100)
         {
-            //Debug.Log("Skydda Huvud");
-            Opponent.guardHead = Opponent.guardHeadStatAfterLastFight + Opponent.guardFlexibleDuringFight;
-            //Mindre skydd Kropp
-            Opponent.guardBody = Opponent.guardBodyStatAfterLastFight - Opponent.guardFlexibleDuringFight;
+            Debug.Log("Båda delarna lika utsatta");
+
+            Opponent.guardFlexibleBodyActive = false;
+            Opponent.guardFlexibleHeadActive = false;
+
+            //Opponent.guardBody = Opponent.guardBodyStatAfterLastFight;
+            //Opponent.guardHead = Opponent.guardHeadStatAfterLastFight;
+            //Opponent.guardUpdate();
+            //Visualisera skydd
+            DefendHeadManager.playerTwoExtraGuardHeadInactive();
+            DefendBodyManager.playerTwoExtraGuardBodyInactive();
+        }
+
+        else if (Opponent.headHealthNow <= guardAreaExtraLimit * Opponent.headHealthStart/100)
+        {
+            Opponent.guardFlexibleHeadActive = true;
+            Opponent.guardFlexibleBodyActive = false;
+            //Opponent.guardUpdate();
+            Debug.Log("Guard Head, Opponent AI: " + Opponent.guardHead);
 
             //Visualisera skydd
             DefendHeadManager.playerTwoExtraGuardHeadActive();
             DefendBodyManager.playerTwoExtraGuardBodyInactive();
         }
 
-        if (Opponent.bodyHealthNow<= guardAreaExtraLimit * Opponent.bodyHealthStart / 100)
+        else if (Opponent.bodyHealthNow<= guardAreaExtraLimit * Opponent.bodyHealthStart / 100)
         {
+            //Debug.Log("Motstånd Namn: " + Opponent.name);
             //Debug.Log("Skydda Kropp");
-            Opponent.guardBody = Opponent.guardBodyStatAfterLastFight + Opponent.guardFlexibleDuringFight;
+            Opponent.guardFlexibleBodyActive = true;
+            Opponent.guardFlexibleHeadActive = false;
+            //Opponent.guardUpdate();
+
+           
             //Mindre skydd Huvud
-            Opponent.guardHead = Opponent.guardHeadStatAfterLastFight - Opponent.guardFlexibleDuringFight;
 
             //Visualisera skydd
             DefendBodyManager.playerTwoExtraGuardActive();
             DefendHeadManager.playerTwoExtraGuardHeadInactive();
         }
 
-        if (Opponent.headHealthNow <= guardAreaExtraLimit * Opponent.headHealthStart / 100 && Opponent.bodyHealthNow <= guardAreaExtraLimit * Opponent.bodyHealthStart / 100)
-        {
-            Debug.Log("Båda delarna lika utsatta");
-            Opponent.guardBody = Opponent.guardBodyStatAfterLastFight;
-            Opponent.guardHead = Opponent.guardHeadStatAfterLastFight;
+        Opponent.guardUpdate();
 
-            //Visualisera skydd
-            DefendHeadManager.playerTwoExtraGuardHeadInactive();
-            DefendBodyManager.playerTwoExtraGuardBodyInactive();
-        }
-
-        /*
-        if (Opponent.headHealthNow >= guardAreaExtraLimit * Opponent.headHealthStart / 100)
-        {
-            //Visualisera skydd
-            DefendHeadManager.playerTwoExtraGuardHeadInactive();
-            //DefendBodyManager.playerTwoExtraGuardBodyInactive();
-        }
-        */
     }
 }
